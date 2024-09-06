@@ -1,63 +1,47 @@
-<script>
-    const modal = document.getElementById("serviceModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalImage = document.getElementById("modalImage");
-    const modalDescription = document.getElementById("modalDescription");
-
-    const serviceDetails = {
-        'manual-therapy': {
-            title: 'Manual Therapy',
-            image: 'https://via.placeholder.com/600x300?text=Manual+Therapy+Detail',
-            description: 'Our expert physiotherapists use hands-on techniques to manipulate joints, massage muscles, and improve overall physical function. This approach helps alleviate pain, increase flexibility, and promote faster healing.'
-        },
-        'pilates': {
-            title: 'Pilates',
-            image: 'https://via.placeholder.com/600x300?text=Pilates+Detail',
-            description: 'Our Pilates classes focus on core strength, flexibility, and body awareness. Whether you're recovering from an injury or looking to improve your overall fitness, our tailored Pilates programs cater to all levels.'
-        },
-        'careway': {
-            title: 'Careway Pathway',
-            image: 'https://via.placeholder.com/600x300?text=Careway+Pathway+Detail',
-            description: 'The Careway Pathway is an ACC-funded program designed to provide comprehensive care for specific injuries. Our team works closely with you to create a personalized recovery plan and guide you through every step of your rehabilitation journey.'
-        },
-        'sports-rehab': {
-            title: 'Sports and Injury Rehab',
-            image: 'https://via.placeholder.com/600x300?text=Sports+and+Injury+Rehab+Detail',
-            description: 'Our sports and injury rehabilitation services cater to athletes of all levels. We combine advanced therapeutic techniques with personalized exercise programs to help you recover from injuries, improve performance, and prevent future problems.'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Body Physio - Titirangi Clinic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
         }
-    };
-
-    function openServiceDetails(service) {
-        const details = serviceDetails[service];
-        modalTitle.textContent = details.title;
-        modalImage.src = details.image;
-        modalImage.alt = details.title;
-        modalDescription.textContent = details.description;
-        modal.style.display = "block";
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    // Add event listeners to service boxes
-    document.querySelectorAll('.service-box').forEach(box => {
-        box.addEventListener('click', function() {
-            const service = this.querySelector('h3').textContent.toLowerCase().replace(/\s+/g, '-');
-            openServiceDetails(service);
-        });
-    });
-
-    // Close modal when clicking outside of it
-    window.addEventListener('click', function(event) {
-        if (event.target == modal) {
-            closeModal();
+        .service-box {
+            border: 1px solid #1B3818;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
         }
-    });
+    </style>
+</head>
+<body>
+    <h1>Total Body Physio - Titirangi Clinic</h1>
+    
+    <div id="services">
+        <h2>Our Services</h2>
+        <div class="service-box" onclick="alert('Manual Therapy clicked')">
+            <h3>Manual Therapy</h3>
+        </div>
+        <div class="service-box" onclick="alert('Pilates clicked')">
+            <h3>Pilates</h3>
+        </div>
+        <div class="service-box" onclick="alert('Careway Pathway clicked')">
+            <h3>Careway Pathway</h3>
+        </div>
+        <div class="service-box" onclick="alert('Sports and Injury Rehab clicked')">
+            <h3>Sports and Injury Rehab</h3>
+        </div>
+    </div>
 
-    // Close modal when clicking the close button
-    document.querySelector('.close').addEventListener('click', closeModal);
-
-    // Log to console to check if script is running
-    console.log('Script loaded and running');
-</script>
+    <script>
+        console.log("Script is running");
+    </script>
+</body>
+</html>
