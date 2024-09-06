@@ -10,12 +10,62 @@
             line-height: 1.6;
             margin: 0;
             padding: 20px;
+            color: #333;
+        }
+        header {
+            background-color: white;
+            color: #1B3818;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
         .service-box {
             border: 1px solid #1B3818;
             border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
             cursor: pointer;
         }
     </style>
@@ -28,20 +78,72 @@
     <main>
         <section id="services">
             <h2>Our Services</h2>
-            <div class="service-box" onclick="alert('Manual Therapy details')">
-                <h3>Manual Therapy</h3>
-            </div>
-            <div class="service-box" onclick="alert('Pilates details')">
-                <h3>Pilates</h3>
-            </div>
-            <div class="service-box" onclick="alert('Careway Pathway details')">
-                <h3>Careway Pathway</h3>
-            </div>
-            <div class="service-box" onclick="alert('Sports and Injury Rehab details')">
-                <h3>Sports and Injury Rehab</h3>
+            <div class="services-grid">
+                <div class="service-box" onclick="openServiceDetails('manual-therapy')">
+                    <h3>Manual Therapy</h3>
+                </div>
+                <div class="service-box" onclick="openServiceDetails('pilates')">
+                    <h3>Pilates</h3>
+                </div>
+                <div class="service-box" onclick="openServiceDetails('careway')">
+                    <h3>Careway Pathway</h3>
+                </div>
+                <div class="service-box" onclick="openServiceDetails('sports-rehab')">
+                    <h3>Sports and Injury Rehab</h3>
+                </div>
             </div>
         </section>
     </main>
 
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("serviceModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDescription = document.getElementById("modalDescription");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        const serviceDetails = {
+            'manual-therapy': {
+                title: 'Manual Therapy',
+                description: 'Our expert physiotherapists use hands-on techniques to manipulate joints, massage muscles, and improve overall physical function.'
+            },
+            'pilates': {
+                title: 'Pilates',
+                description: 'Our Pilates classes focus on core strength, flexibility, and body awareness. Suitable for all levels.'
+            },
+            'careway': {
+                title: 'Careway Pathway',
+                description: 'An ACC-funded program designed to provide comprehensive care for specific injuries.'
+            },
+            'sports-rehab': {
+                title: 'Sports and Injury Rehab',
+                description: 'We combine advanced therapeutic techniques with personalized exercise programs for athletes of all levels.'
+            }
+        };
+
+        function openServiceDetails(service) {
+            const details = serviceDetails[service];
+            modalTitle.textContent = details.title;
+            modalDescription.textContent = details.description;
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
