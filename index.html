@@ -34,11 +34,9 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-family: 'Lulo Clean', sans-serif;
-            font-size: 1.5rem;
-            color: var(--dark-green);
-            text-decoration: none;
+        .logo img {
+            max-height: 50px;
+            width: auto;
         }
         nav ul {
             list-style-type: none;
@@ -160,6 +158,12 @@
             cursor: pointer;
             margin-top: 1rem;
         }
+        .pc-content {
+            display: block;
+        }
+        .mobile-content {
+            display: none;
+        }
         @media (max-width: 768px) {
             .contact-grid, .modal-body {
                 grid-template-columns: 1fr;
@@ -171,13 +175,21 @@
             .modal-text {
                 text-align: center;
             }
+            .pc-content {
+                display: none;
+            }
+            .mobile-content {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">Total Body Physio</a>
+            <a href="#" class="logo">
+                <img src="path_to_your_logo.png" alt="Total Body Physio Logo">
+            </a>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -219,16 +231,16 @@
         <h2 class="section-title">Our Team</h2>
         <div class="team-grid">
             <div class="team-member" onclick="openTeamModal('jade')">
-                <img src="https://via.placeholder.com/200x200?text=Jade" alt="Jade">
-                <h3>Jade</h3>
+                <img src="path_to_jade_image.jpg" alt="Jade Warren">
+                <h3>Jade Warren</h3>
             </div>
             <div class="team-member" onclick="openTeamModal('hans')">
-                <img src="https://via.placeholder.com/200x200?text=Hans" alt="Hans">
-                <h3>Hans</h3>
+                <img src="path_to_hans_image.jpg" alt="Hans Vermeulen">
+                <h3>Hans Vermeulen</h3>
             </div>
             <div class="team-member" onclick="openTeamModal('maria')">
-                <img src="https://via.placeholder.com/200x200?text=Maria" alt="Maria">
-                <h3>Maria</h3>
+                <img src="path_to_maria_image.jpg" alt="María Alonso">
+                <h3>María Alonso</h3>
             </div>
         </div>
     </section>
@@ -236,7 +248,7 @@
     <section id="about" class="about-section">
         <div class="container">
             <h2 class="section-title">About Us</h2>
-            <p>Total Body Physio Titirangi has been serving the community since 2004. Our team of experienced physiotherapists is dedicated to providing personalized care and effective treatment plans to help you achieve optimal health and well-being.</p>
+            <p>Total Body Physio Titirangi has been serving the community since 2004. Our team of experienced physiotherapists is dedicated to providing personalised care and effective treatment plans to help you achieve optimal health and well-being.</p>
         </div>
     </section>
 
@@ -272,8 +284,8 @@
             <div class="modal-body">
                 <img id="modalImage" src="" alt="">
                 <div class="modal-text">
-                    <p id="modalContent"></p>
-                    <button class="book-button" onclick="bookAppointment()">Book Appointment</button>
+                    <div id="modalContent"></div>
+                    <button id="bookButton" class="book-button">Book Appointment</button>
                 </div>
             </div>
         </div>
@@ -283,69 +295,57 @@
         var modal = document.getElementById("modal");
         var span = document.getElementsByClassName("close")[0];
 
-        function openModal(title, content, imageSrc) {
+        const serviceDetails = {
+            'Manual Therapy': {
+                title: 'Manual Therapy',
+                content: 'Our expert physiotherapists use hands-on techniques to manipulate joints, massage muscles, and improve overall physical function. This approach helps alleviate pain, increase flexibility, and promote faster healing. Manual therapy is particularly effective for treating musculoskeletal issues, improving range of motion, and accelerating recovery from injuries.'
+            },
+            'Pilates': {
+                title: 'Pilates',
+                content: 'Our Pilates classes focus on core strength, flexibility, and body awareness. Whether you're recovering from an injury or looking to improve your overall fitness, our tailored Pilates programmes cater to all levels. Pilates is excellent for improving posture, reducing back pain, and enhancing overall physical performance.'
+            },
+            'Careway Pathway': {
+                title: 'Careway Pathway',
+                content: 'The Careway Pathway is an ACC-funded programme designed to provide comprehensive care for specific injuries. Our team works closely with you to create a personalised recovery plan and guide you through every step of your rehabilitation journey. This programme ensures you receive the right care at the right time, optimising your recovery and return to normal activities.'
+            },
+            'Sports and Injury Rehab': {
+                title: 'Sports and Injury Rehab',
+                content: 'Our sports and injury rehabilitation services cater to athletes of all levels, from weekend warriors to professional sportspeople. We combine advanced therapeutic techniques with personalised exercise programmes to help you recover from injuries, improve performance, and prevent future problems. Our approach focuses on getting you back to your sport or activity safely and effectively.'
+            }
+        };
+
+        const teamDetails = {
+            'jade': {
+                name: 'Jade Warren',
+                pcBio: 'Jade Warren is a highly experienced physiotherapist with over 23 years in the field. He possesses excellent clinical skills and focuses on detailed assessments to identify the root cause of pain or injury. Jade has a natural talent for treatment, using his wealth of knowledge to develop targeted rehabilitation plans for clients to achieve optimal healing and results. His passion for solving challenging physical problems and making significant strides with his clients shines through in his patient-centred care.',
+                mobileBio: 'Jade Warren: 23+ years experience. Expert in clinical assessment and targeted rehab plans. Passionate about solving complex physical issues.',
+                image: 'path_to_jade_image.jpg',
+                bookingLink: 'https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=146146'
+            },
+            'hans': {
+                name: 'Hans Vermeulen',
+                pcBio: 'Hans Vermeulen is a dedicated and caring physiotherapist specialising in a range of techniques to deliver exceptional care. He is well-versed in traditional manual therapy techniques and is trained in CranioSacral Therapy. Hans uses a gentle, hands-on approach that aims to release tension and encourage the body's natural healing processes. His holistic approach helps patients relieve pain, reduce stress, and improve overall wellbeing.',
+                mobileBio: 'Hans Vermeulen: Expert in manual therapy and CranioSacral Therapy. Holistic approach to pain relief and wellness.',
+                image: 'path_to_hans_image.jpg',
+                bookingLink: 'https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=151541'
+            },
+            'maria': {
+                name: 'María Alonso',
+                pcBio: 'María Alonso is a highly skilled Spanish physiotherapist with over 10 years of experience. She specialises as a physio assistant, massage therapist, and Pilates instructor. María's expertise extends to working with WTA athletes, and she has a background in Women's health. Known for her bubbly personality and great communication skills, María enjoys a hands-on approach to treatment.',
+                mobileBio: 'María Alonso: 10+ years experience. Specialises in massage, Pilates, and Women's health. Worked with WTA athletes.',
+                image: 'path_to_maria_image.jpg',
+                bookingLink: 'https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=1414969921577682942'
+            }
+        };
+
+        function openModal(title, content, imageSrc, bookingLink) {
             document.getElementById("modalTitle").innerText = title;
-            document.getElementById("modalContent").innerText = content;
-            if (imageSrc) {
-                document.getElementById("modalImage").src = imageSrc;
-                document.getElementById("modalImage").style.display = "block";
-            } else {
-                document.getElementById("modalImage").style.display = "none";
-            }
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
-        }
+            
+            const pcContent = document.createElement('div');
+            pcContent.className = 'pc-content';
+            pcContent.innerText = content;
 
-        function openTeamModal(member) {
-            var title, content, imageSrc;
-            switch(member) {
-                case 'jade':
-                    title = "Jade";
-                    content = "Jade is an experienced physiotherapist specializing in sports injuries and rehabilitation.";
-                    imageSrc = "https://via.placeholder.com/200x200?text=Jade";
-                    break;
-                case 'hans':
-                    title = "Hans";
-                    content = "Hans has expertise in manual therapy and chronic pain management.";
-                    imageSrc = "https://via.placeholder.com/200x200?text=Hans";
-                    break;
-                case 'maria':
-                    title = "Maria";
-                    content = "Maria is our Pilates expert and specializes in postural correction and core strengthening.";
-                    imageSrc = "https://via.placeholder.com/200x200?text=Maria";
-                    break;
-            }
-            openModal(title, content, imageSrc);
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-            document.body.style.overflow = ""; // Restore scrolling when modal is closed
-        }
-
-        span.onclick = closeModal;
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        function bookAppointment() {
-            alert("Booking functionality will be implemented here.");
-            // You can replace this with actual booking logic or a link to your booking system
-        }
-
-        // Add event listeners to service boxes
-        var serviceBoxes = document.getElementsByClassName("service-box");
-        for (var i = 0; i < serviceBoxes.length; i++) {
-            serviceBoxes[i].addEventListener("click", function() {
-                var service = this.getElementsByTagName("h3")[0].innerText;
-                openModal(service, "Details for " + service + " will go here.", "");
-            });
-        }
-
-        console.log("Script is running");
-    </script>
-</body>
-</html>
+            const mobileContent = document.createElement('div');
+            mobileContent.className = 'mobile-content';
+            mobileContent.innerText = content.split('. ')[0] + '.</antArtifact>
+                   
