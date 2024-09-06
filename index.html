@@ -4,41 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Body Physio - Titirangi Clinic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lulo+Clean:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --dark-green: #1B3818;
+            --light-green: #8DC63F;
+            --white: #FFFFFF;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             color: #333;
         }
         header {
-            background-color: #1B3818;
-            color: white;
-            padding: 1rem;
-            text-align: center;
+            background-color: var(--white);
+            color: var(--dark-green);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Lulo Clean', sans-serif;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+            text-decoration: none;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: bold;
+        }
+        .hero {
+            background-color: var(--dark-green);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 0;
+        }
+        .hero h1 {
+            font-family: 'Lulo Clean', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 40px;
         }
         .service-box {
-            border: 1px solid #1B3818;
+            border: 1px solid var(--dark-green);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .service-box:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .modal {
             display: none;
@@ -52,12 +92,13 @@
             background-color: rgba(0,0,0,0.4);
         }
         .modal-content {
-            background-color: #fefefe;
+            background-color: var(--white);
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
             max-width: 600px;
+            border-radius: 10px;
         }
         .close {
             color: #aaa;
@@ -72,27 +113,50 @@
             text-decoration: none;
             cursor: pointer;
         }
+        .section-title {
+            font-family: 'Lulo Clean', sans-serif;
+            color: var(--dark-green);
+            text-align: center;
+            margin: 2rem 0;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Total Body Physio - Titirangi Clinic</h1>
+        <div class="container header-content">
+            <a href="#" class="logo">Total Body Physio</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Total Body Physio Titirangi</h1>
+            <p>Expert physiotherapy care in the heart of Titirangi</p>
+        </div>
+    </section>
 
     <div class="container">
         <section id="services">
-            <h2>Our Services</h2>
+            <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
-                <div class="service-box" onclick="openModal('Manual Therapy')">
+                <div class="service-box" onclick="openModal('manual-therapy')">
                     <h3>Manual Therapy</h3>
                 </div>
-                <div class="service-box" onclick="openModal('Pilates')">
+                <div class="service-box" onclick="openModal('pilates')">
                     <h3>Pilates</h3>
                 </div>
-                <div class="service-box" onclick="openModal('Careway Pathway')">
+                <div class="service-box" onclick="openModal('careway')">
                     <h3>Careway Pathway</h3>
                 </div>
-                <div class="service-box" onclick="openModal('Sports and Injury Rehab')">
+                <div class="service-box" onclick="openModal('sports-rehab')">
                     <h3>Sports and Injury Rehab</h3>
                 </div>
             </div>
@@ -103,16 +167,38 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle"></h2>
-            <p id="modalContent">Service details will go here.</p>
+            <p id="modalContent"></p>
         </div>
     </div>
 
     <script>
         const modal = document.getElementById("serviceModal");
         const modalTitle = document.getElementById("modalTitle");
+        const modalContent = document.getElementById("modalContent");
+
+        const serviceDetails = {
+            'manual-therapy': {
+                title: 'Manual Therapy',
+                content: 'Our expert physiotherapists use hands-on techniques to manipulate joints, massage muscles, and improve overall physical function. This approach helps alleviate pain, increase flexibility, and promote faster healing.'
+            },
+            'pilates': {
+                title: 'Pilates',
+                content: 'Our Pilates classes focus on core strength, flexibility, and body awareness. Whether you're recovering from an injury or looking to improve your overall fitness, our tailored Pilates programs cater to all levels.'
+            },
+            'careway': {
+                title: 'Careway Pathway',
+                content: 'The Careway Pathway is an ACC-funded program designed to provide comprehensive care for specific injuries. Our team works closely with you to create a personalized recovery plan and guide you through every step of your rehabilitation journey.'
+            },
+            'sports-rehab': {
+                title: 'Sports and Injury Rehab',
+                content: 'Our sports and injury rehabilitation services cater to athletes of all levels. We combine advanced therapeutic techniques with personalized exercise programs to help you recover from injuries, improve performance, and prevent future problems.'
+            }
+        };
 
         function openModal(service) {
-            modalTitle.textContent = service;
+            const details = serviceDetails[service];
+            modalTitle.textContent = details.title;
+            modalContent.textContent = details.content;
             modal.style.display = "block";
         }
 
