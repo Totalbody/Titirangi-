@@ -131,56 +131,65 @@
     </div>
 
     <script>
-        var modal = document.getElementById("modal");
-        var span = document.getElementsByClassName("close")[0];
+    var modal = document.getElementById("modal");
+    var span = document.getElementsByClassName("close")[0];
 
-        function openModal(title, content, imageSrc) {
-            document.getElementById("modalTitle").innerText = title;
-            document.getElementById("modalContent").innerText = content;
-            document.getElementById("modalImage").src = imageSrc;
-            modal.style.display = "block";
+    function openModal(title, content, imageSrc) {
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalContent").innerText = content;
+        document.getElementById("modalImage").src = imageSrc;
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+    }
+
+    function openTeamModal(member) {
+        var title, content, imageSrc;
+        switch(member) {
+            case 'jade':
+                title = "Jade";
+                content = "Jade is an experienced physiotherapist specializing in sports injuries and rehabilitation.";
+                imageSrc = "https://via.placeholder.com/200x200?text=Jade";
+                break;
+            case 'hans':
+                title = "Hans";
+                content = "Hans has expertise in manual therapy and chronic pain management.";
+                imageSrc = "https://via.placeholder.com/200x200?text=Hans";
+                break;
+            case 'maria':
+                title = "Maria";
+                content = "Maria is our Pilates expert and specializes in postural correction and core strengthening.";
+                imageSrc = "https://via.placeholder.com/200x200?text=Maria";
+                break;
         }
+        openModal(title, content, imageSrc);
+    }
 
-        function openTeamModal(member) {
-            var title, content, imageSrc;
-            switch(member) {
-                case 'jade':
-                    title = "Jade";
-                    content = "Jade is an experienced physiotherapist specializing in sports injuries and rehabilitation.";
-                    imageSrc = "https://via.placeholder.com/200x200?text=Jade";
-                    break;
-                case 'hans':
-                    title = "Hans";
-                    content = "Hans has expertise in manual therapy and chronic pain management.";
-                    imageSrc = "https://via.placeholder.com/200x200?text=Hans";
-                    break;
-                case 'maria':
-                    title = "Maria";
-                    content = "Maria is our Pilates expert and specializes in postural correction and core strengthening.";
-                    imageSrc = "https://via.placeholder.com/200x200?text=Maria";
-                    break;
-            }
-            openModal(title, content, imageSrc);
+    function closeModal() {
+        modal.style.display = "none";
+        document.body.style.overflow = ""; // Restore scrolling when modal is closed
+    }
+
+    span.onclick = closeModal;
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
         }
+    }
 
-        function closeModal() {
-            modal.style.display = "none";
-        }
+    function bookAppointment() {
+        alert("Booking functionality will be implemented here.");
+        // You can replace this with actual booking logic or a link to your booking system
+    }
 
-        span.onclick = closeModal;
+    // Add event listeners to service boxes
+    var serviceBoxes = document.getElementsByClassName("service-box");
+    for (var i = 0; i < serviceBoxes.length; i++) {
+        serviceBoxes[i].addEventListener("click", function() {
+            var service = this.getElementsByTagName("h3")[0].innerText;
+            openModal(service, "Details for " + service + " will go here.", "");
+        });
+    }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        function bookAppointment() {
-            alert("Booking functionality will be implemented here.");
-            // You can replace this with actual booking logic or a link to your booking system
-        }
-
-        // Existing service modal logic remains the same
-    </script>
-</body>
-</html>
+    console.log("Script is running");
+</script>
