@@ -172,47 +172,39 @@
     </div>
 
     <script>
-        const modal = document.getElementById("serviceModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalContent = document.getElementById("modalContent");
+    // Get the modal
+    var modal = document.getElementById("serviceModal");
 
-        const serviceDetails = {
-            'manual-therapy': {
-                title: 'Manual Therapy',
-                content: 'Our expert physiotherapists use hands-on techniques to manipulate joints, massage muscles, and improve overall physical function. This approach helps alleviate pain, increase flexibility, and promote faster healing.'
-            },
-            'pilates': {
-                title: 'Pilates',
-                content: 'Our Pilates classes focus on core strength, flexibility, and body awareness. Whether you're recovering from an injury or looking to improve your overall fitness, our tailored Pilates programs cater to all levels.'
-            },
-            'careway': {
-                title: 'Careway Pathway',
-                content: 'The Careway Pathway is an ACC-funded program designed to provide comprehensive care for specific injuries. Our team works closely with you to create a personalized recovery plan and guide you through every step of your rehabilitation journey.'
-            },
-            'sports-rehab': {
-                title: 'Sports and Injury Rehab',
-                content: 'Our sports and injury rehabilitation services cater to athletes of all levels. We combine advanced therapeutic techniques with personalized exercise programs to help you recover from injuries, improve performance, and prevent future problems.'
-            }
-        };
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-        function openModal(service) {
-            const details = serviceDetails[service];
-            modalTitle.textContent = details.title;
-            modalContent.textContent = details.content;
-            modal.style.display = "block";
-        }
+    // Function to open the modal
+    function openModal(service) {
+        modal.style.display = "block";
+        document.getElementById("modalTitle").innerText = "Service: " + service;
+        document.getElementById("modalContent").innerText = "Details for " + service + " will go here.";
+    }
 
-        function closeModal() {
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
             modal.style.display = "none";
         }
+    }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+    // Add click event listeners to all service boxes
+    var serviceBoxes = document.getElementsByClassName("service-box");
+    for (var i = 0; i < serviceBoxes.length; i++) {
+        serviceBoxes[i].addEventListener("click", function() {
+            var service = this.getElementsByTagName("h3")[0].innerText;
+            openModal(service);
+        });
+    }
 
-        console.log("Script is running");
-    </script>
-</body>
-</html>
+    console.log("Script is running");
+</script>
