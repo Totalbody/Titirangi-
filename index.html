@@ -32,6 +32,11 @@
             text-transform: uppercase; 
             font-size: 16px; 
         }
+        header li { 
+            float: left; 
+            display: inline; 
+            padding: 0 20px;
+        }
         header #branding { 
             float: left; 
         }
@@ -49,14 +54,6 @@
         header a:hover { 
             color: #8DC63F; 
             font-weight: bold; 
-        }
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
         }
         #showcase {
             background: url('path_to_clinic_image.jpg') no-repeat center center/cover;
@@ -170,50 +167,6 @@
             background-color: #f4f4f4;
             border-radius: 0 0 5px 5px;
         }
-        
-        @media(max-width: 768px) {
-            header {
-                padding: 10px 0;
-            }
-            header #branding,
-            header nav {
-                float: none;
-                text-align: left;
-                width: 100%;
-            }
-            header #branding h1 {
-                font-size: 1.2em;
-                margin-bottom: 5px;
-            }
-            .menu-toggle {
-                display: block;
-                float: right;
-                margin-top: -30px;
-            }
-            .nav-menu {
-                display: none;
-                width: 100%;
-                padding: 0;
-                margin: 0;
-            }
-            .nav-menu.show {
-                display: block;
-            }
-            header nav li {
-                display: block;
-                margin-bottom: 5px;
-            }
-            header nav a {
-                display: block;
-                padding: 5px 0;
-            }
-            #showcase {
-                margin-top: 80px;
-            }
-            .container {
-                width: 90%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -223,9 +176,8 @@
                 <h1><span class="highlight">Total Body Physio</span> Titirangi</h1>
             </div>
             <nav>
-                <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
+                <ul>
+                    <li class="current"><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#team">Our Team</a></li>
@@ -324,28 +276,6 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">What should I wear to my appointment?</div>
-                <div class="faq-answer">We recommend wearing comfortable, loose-fitting clothing that allows easy access to the area being treated. For lower body issues, shorts or</antArtifact>
-                    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Previous head content remains the same -->
-</head>
-<body>
-    <!-- Previous body content remains the same -->
-
-    <section id="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">What should I expect during my first visit?</div>
-                <div class="faq-answer">During your first visit, our expert physiotherapist will conduct a comprehensive assessment. This includes discussing your medical history, current symptoms, and goals. We'll perform a physical examination to evaluate your condition. Based on this assessment, we'll develop a personalised treatment plan tailored to your specific needs and explain the proposed course of action.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">Do I need a referral to see a physiotherapist?</div>
-                <div class="faq-answer">In New Zealand, you generally don't need a referral to see a physiotherapist for private treatment. You can book an appointment directly with us. However, if you're seeking treatment for an ACC-covered injury, you may need a referral from your GP or specialist. If you're unsure, give us a call, and we'll be happy to guide you through the process.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">What should I wear to my appointment?</div>
                 <div class="faq-answer">We recommend wearing comfortable, loose-fitting clothing that allows easy access to the area being treated. For lower body issues, shorts or loose trousers are ideal. For upper body concerns, a tank top or loose shirt works well. If you're coming directly from work, don't worry - we can provide gowns or shorts if needed.</div>
             </div>
         </div>
@@ -376,58 +306,4 @@
             } else {
                 bookButton.style.display = "none";
             }
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        function toggleFAQ(element) {
-            var answer = element.nextElementSibling;
-            if (answer.style.display === "block") {
-                answer.style.display = "none";
-            } else {
-                answer.style.display = "block";
-            }
-        }
-
-        // Event listeners for services
-        document.querySelectorAll('.service-box').forEach(box => {
-            box.addEventListener('click', function() {
-                var title = this.querySelector('h3').innerText;
-                var content = this.getAttribute('data-content');
-                openModal(title, content);
-            });
-        });
-
-        // Event listeners for team members
-        document.querySelectorAll('.team-member').forEach(member => {
-            member.addEventListener('click', function() {
-                var title = this.querySelector('h3').innerText;
-                var content = this.getAttribute('data-content');
-                var bookingLink = this.getAttribute('data-booking');
-                openModal(title, content, bookingLink);
-            });
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('show');
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.nav-menu').classList.remove('show');
-            });
-        });
-    </script>
-</body>
-</html>
+            modal.style.display = "block";</antArtifact>
