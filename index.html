@@ -396,41 +396,111 @@
 
     <!-- Modal Pop-up -->
     <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <p id="modalContent"></p>
-        </div>
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="modalContent"></div>
     </div>
+</div>
 
     <script>
-        // Mobile Menu Toggle Script
-        const menuToggle = document.querySelector('.menu-toggle');
-        const menuClose = document.querySelector('.menu-close');
-        const header = document.querySelector('header');
+    // Mobile Menu Toggle Script
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuClose = document.querySelector('.menu-close');
+    const header = document.querySelector('header');
 
-        menuToggle.addEventListener('click', () => {
-            header.classList.add('nav-active');
-        });
+    menuToggle.addEventListener('click', () => {
+        header.classList.add('nav-active');
+    });
 
-        menuClose.addEventListener('click', () => {
-            header.classList.remove('nav-active');
-        });
+    menuClose.addEventListener('click', () => {
+        header.classList.remove('nav-active');
+    });
 
-        // Modal Pop-up Logic
-        const modal = document.getElementById("modal");
-        const closeModal = document.getElementsByClassName("close")[0];
+    // Modal Pop-up Logic
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalContent = document.getElementById("modalContent");
+    const closeModal = document.getElementsByClassName("close")[0];
 
-        closeModal.onclick = function() {
+    function openModal(title, content) {
+        modalTitle.textContent = title;
+        modalContent.innerHTML = content;
+        modal.style.display = "block";
+    }
+
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
             modal.style.display = "none";
-        };
+        }
+    };
 
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
+    // Team Member Modal
+    document.querySelectorAll('.team-member').forEach(member => {
+        member.addEventListener('click', function() {
+            const name = this.querySelector('h3').textContent;
+            const content = this.getAttribute('data-content');
+            openModal(name, content);
+        });
+    });
+
+    // Service Box Modal
+    document.querySelectorAll('.service-box').forEach(box => {
+        box.addEventListener('click', function() {
+            const title = this.querySelector('h3').textContent;
+            let content = this.querySelector('p').textContent;
+            
+            // Add more detailed content based on the service type
+            switch(title) {
+                case "Manual Therapy":
+                    content += "<br><br>Our Manual Therapy service includes:<ul>" +
+                        "<li><strong>Massage:</strong> To relax muscles, improve circulation, and reduce pain.</li>" +
+                        "<li><strong>Trigger Point Release:</strong> Targeting specific points to alleviate muscle tension and pain.</li>" +
+                        "<li><strong>Mobilizations:</strong> Gentle movement of joints to improve flexibility and reduce stiffness.</li>" +
+                        "<li><strong>Stretching:</strong> Guided stretches to improve flexibility and range of motion.</li>" +
+                        "<li><strong>Strengthening:</strong> Exercises to build muscle strength and support joints.</li></ul>" +
+                        "Our experienced physiotherapists use these techniques to address a wide range of conditions, from chronic pain to sports injuries.";
+                    break;
+                case "Careway Pathway":
+                    content += "<br><br>The Careway Pathway is an ACC-funded program that provides:<ul>" +
+                        "<li>Comprehensive initial assessment</li>" +
+                        "<li>Personalized treatment plan</li>" +
+                        "<li>Regular progress reviews</li>" +
+                        "<li>Coordination with other healthcare providers if needed</li>" +
+                        "<li>Support for return to work or daily activities</li></ul>" +
+                        "This pathway ensures you receive the care you need to recover from your injury effectively.";
+                    break;
+                case "Sports and Injury Rehab":
+                    content += "<br><br>Our Sports and Injury Rehabilitation service includes:<ul>" +
+                        "<li>Specialized assessment of sports-related injuries</li>" +
+                        "<li>Sport-specific rehabilitation programs</li>" +
+                        "<li>Functional movement analysis</li>" +
+                        "<li>Performance enhancement techniques</li>" +
+                        "<li>Injury prevention strategies</li></ul>" +
+                        "We work with athletes of all levels to help them recover from injuries and improve their performance.";
+                    break;
+                case "Pilates":
+                    content += "<br><br>Our Pilates classes offer:<ul>" +
+                        "<li>Core strengthening exercises</li>" +
+                        "<li>Improved flexibility and posture</li>" +
+                        "<li>Balance and coordination training</li>" +
+                        "<li>Mindful movement practices</li>" +
+                        "<li>Modifications for all fitness levels and abilities</li></ul>" +
+                        "Led by our experienced instructor María Alonso, our Pilates classes can help with injury prevention, rehabilitation, and overall fitness.";
+                    break;
             }
-        };
+            
+            openModal(title, content);
+        });
+    });
 
-        // Team Member Modal
-        document.querySelectorAll('.team-member').forEach(member => {
-            member.addEventListener('click', function() {
+    // FAQ Toggle Function
+    function toggleFAQ(element) {
+        var answer = element.nextElementSibling;
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+    }
+</script>
