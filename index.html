@@ -291,19 +291,59 @@
     </div>
 
     <script>
-        var modal = document.getElementById("modal");
-        var span = document.getElementsByClassName("close")[0];
-        var bookButton = document.getElementById("bookButton");
+    var modal = document.getElementById("modal");
+    var span = document.getElementsByClassName("close")[0];
+    var bookButton = document.getElementById("bookButton");
 
-        function openModal(title, content, bookingLink) {
-            document.getElementById("modalTitle").innerText = title;
-            document.getElementById("modalContent").innerText = content;
-            if (bookingLink) {
-                bookButton.style.display = "block";
-                bookButton.onclick = function() {
-                    window.open(bookingLink, '_blank');
-                };
-            } else {
-                bookButton.style.display = "none";
-            }
-            modal.style.display = "block";</antArtifact>
+    function openModal(title, content, bookingLink) {
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalContent").innerText = content;
+        if (bookingLink) {
+            bookButton.style.display = "block";
+            bookButton.onclick = function() {
+                window.open(bookingLink, '_blank');
+            };
+        } else {
+            bookButton.style.display = "none";
+        }
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    function toggleFAQ(element) {
+        var answer = element.nextElementSibling;
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+        } else {
+            answer.style.display = "block";
+        }
+    }
+
+    // Event listeners for services
+    document.querySelectorAll('.service-box').forEach(box => {
+        box.addEventListener('click', function() {
+            var title = this.querySelector('h3').innerText;
+            var content = this.getAttribute('data-content');
+            openModal(title, content);
+        });
+    });
+
+    // Event listeners for team members
+    document.querySelectorAll('.team-member').forEach(member => {
+        member.addEventListener('click', function() {
+            var title = this.querySelector('h3').innerText;
+            var content = this.getAttribute('data-content');
+            var bookingLink = this.getAttribute('data-booking');
+            openModal(title, content, bookingLink);
+        });
+    });
+</script>
