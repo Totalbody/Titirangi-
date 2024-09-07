@@ -526,13 +526,13 @@
             modal.style.display = 'none';
         }
 
-        // Add event listeners to team members and service boxes
-        document.querySelectorAll('.team-member, .service-box').forEach(item => {
-            item.addEventListener('click', function () {
-                const content = this.getAttribute('data-content');
-                openModal(content);
-            });
-        });
+        // Add event listeners to team members, service boxes, and FAQ items
+document.querySelectorAll('.team-member, .service-box, .faq-item').forEach(item => {
+    item.addEventListener('click', function () {
+        const content = this.getAttribute('data-content');
+        openModal(content);
+    });
+});
 
         // Close modal when the close button is clicked
         document.querySelector('.close').addEventListener('click', closeModal);
