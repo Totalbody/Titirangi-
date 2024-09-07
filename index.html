@@ -292,43 +292,14 @@
     </div>
 
  <script>
-    console.log("Script started");
+    alert("This is a test alert. If you see this, JavaScript is working.");
 
-    // Basic modal functionality
-    var modal = document.getElementById("modal");
-    var closeBtn = document.getElementsByClassName("close")[0];
+    document.body.style.border = "5px solid red";
 
-    function openModal(message) {
-        console.log("Attempting to open modal with message:", message);
-        if (modal) {
-            document.getElementById("modalContent").innerText = message;
-            modal.style.display = "block";
-            console.log("Modal opened");
-        } else {
-            console.error("Modal element not found");
-        }
-    }
-
-    function closeModal() {
-        console.log("Closing modal");
-        if (modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    if (closeBtn) {
-        closeBtn.onclick = closeModal;
-    } else {
-        console.error("Close button not found");
-    }
-
-    // Test button
-    var testBtn = document.createElement("button");
-    testBtn.innerText = "Test Modal";
-    testBtn.onclick = function() {
-        openModal("This is a test message");
+    var testButton = document.createElement("button");
+    testButton.textContent = "Click me!";
+    testButton.onclick = function() {
+        alert("Button clicked!");
     };
-    document.body.appendChild(testBtn);
-
-    console.log("Script finished loading");
+    document.body.appendChild(testButton);
 </script>
