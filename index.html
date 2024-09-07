@@ -298,10 +298,62 @@
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
+    // Service details
+    const serviceDetails = {
+        'Manual Therapy': {
+            title: 'Manual Therapy',
+            content: 'Our expert physiotherapists use hands-on techniques to manipulate joints, massage muscles, and improve overall physical function. This approach helps alleviate pain, increase flexibility, and promote faster healing.'
+        },
+        'Pilates': {
+            title: 'Pilates',
+            content: 'Our Pilates classes focus on core strength, flexibility, and body awareness. Whether you're recovering from an injury or looking to improve your overall fitness, our tailored Pilates programmes cater to all levels.'
+        },
+        'Careway Pathway': {
+            title: 'Careway Pathway',
+            content: 'The Careway Pathway is an ACC-funded programme designed to provide comprehensive care for specific injuries. Our team works closely with you to create a personalised recovery plan and guide you through every step of your rehabilitation journey.'
+        },
+        'Sports and Injury Rehab': {
+            title: 'Sports and Injury Rehab',
+            content: 'Our sports and injury rehabilitation services cater to athletes of all levels. We combine advanced therapeutic techniques with personalised exercise programmes to help you recover from injuries, improve performance, and prevent future problems.'
+        }
+    };
+
+    // Team member details
+    const teamDetails = {
+        'Jade Warren': {
+            name: 'Jade Warren',
+            content: 'Jade Warren is a highly experienced physiotherapist with over 23 years in the field. He possesses excellent clinical skills and focuses on detailed assessments to identify the root cause of pain or injury.',
+            bookingLink: 'https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=146146'
+        },
+        'Hans Vermeulen': {
+            name: 'Hans Vermeulen',
+            content: 'Hans Vermeulen is a dedicated and caring physiotherapist specialising in a range of techniques to deliver exceptional care. He is well-versed in traditional manual therapy techniques and is trained in CranioSacral Therapy.',
+            bookingLink: 'https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=151541'
+        },
+        'María Alonso': {
+            name: 'María Alonso',
+            content: 'María Alonso is a highly skilled Spanish physiotherapist with over 10 years of experience. She specialises as a physio assistant, massage therapist, and Pilates instructor.',
+            bookingLink: 'https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=1414969921577682942'
+        }
+    };
+
     // Function to open the modal
-    function openModal(title, content) {
+    function openModal(title, content, bookingLink) {
         document.getElementById("modalTitle").innerText = title;
         document.getElementById("modalContent").innerText = content;
+        
+        var bookButton = document.getElementById("bookButton");
+        if (bookButton) {
+            if (bookingLink) {
+                bookButton.style.display = "block";
+                bookButton.onclick = function() {
+                    window.open(bookingLink, '_blank');
+                };
+            } else {
+                bookButton.style.display = "none";
+            }
+        }
+        
         modal.style.display = "block";
     }
 
@@ -322,7 +374,8 @@
     for (var i = 0; i < serviceBoxes.length; i++) {
         serviceBoxes[i].addEventListener("click", function() {
             var service = this.getElementsByTagName("h3")[0].innerText;
-            openModal(service, "This is the " + service + " service.");
+            var details = serviceDetails[service];
+            openModal(details.title, details.content);
         });
     }
 
@@ -331,15 +384,8 @@
     for (var i = 0; i < teamMembers.length; i++) {
         teamMembers[i].addEventListener("click", function() {
             var name = this.getElementsByTagName("h3")[0].innerText;
-            openModal(name, "This is the bio for " + name + ".");
+            var details = teamDetails[name];
+            openModal(details.name, details.content, details.bookingLink);
         });
     }
-
-    // Add a test button
-    var testButton = document.createElement("button");
-    testButton.textContent = "Test Modal";
-    testButton.onclick = function() {
-        openModal("Test", "This is a test modal.");
-    };
-    document.body.appendChild(testButton);
 </script>
