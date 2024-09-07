@@ -437,8 +437,48 @@
         <h2>Frequently Asked Questions</h2>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">What is an ACC injury?</div>
-            <div class="faq-answer">An ACC injury
-                <script>
+            <div class="faq-answer
+                <div class="faq-answer">An ACC injury refers to an injury covered by the Accident Compensation Corporation in New Zealand. This includes injuries from accidents at work, home, or during sports activities. ACC provides support for treatment and rehabilitation of these injuries.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Do I need a referral to see a physiotherapist?</div>
+            <div class="faq-answer">No, you don't need a referral to see a physiotherapist. You can book directly with us. However, if you're seeking treatment for an ACC-covered injury, you may need a referral from your GP or specialist.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">How long does a typical physiotherapy session last?</div>
+            <div class="faq-answer">A typical physiotherapy session at Total Body Physio lasts between 30 to 60 minutes, depending on the nature and complexity of your condition. Initial consultations may take longer as they include a comprehensive assessment.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What should I wear to my physiotherapy appointment?</div>
+            <div class="faq-answer">We recommend wearing comfortable, loose-fitting clothing that allows easy access to the area being treated. For lower body issues, shorts or loose trousers are ideal. For upper body concerns, a tank top or loose shirt works well.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">How many sessions will I need?</div>
+            <div class="faq-answer">The number of sessions required varies depending on your specific condition, its severity, and how your body responds to treatment. After your initial assessment, your physiotherapist will provide a treatment plan and an estimate of the number of sessions you might need.</div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <div class="container" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p><strong>Address:</strong> 2 Rangiwai Rd, Titirangi, Auckland</p>
+            <p><strong>Phone:</strong> <a href="tel:098177377">09 817 7377</a></p>
+            <p><strong>Email:</strong> <a href="mailto:titirangi@totalbodyphysio.co.nz">titirangi@totalbodyphysio.co.nz</a></p>
+            <p><strong>Hours:</strong> Monday to Friday, 7am - 7pm</p>
+        </div>
+    </div>
+
+    <!-- Modal Pop-up -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
     // Mobile Menu Toggle Script
     const menuToggle = document.querySelector('.menu-toggle');
     const menuClose = document.querySelector('.menu-close');
@@ -538,4 +578,6 @@
         var answer = element.nextElementSibling;
         answer.style.display = answer.style.display === "block" ? "none" : "block";
     }
-</script>
+    </script>
+</body>
+</html>
