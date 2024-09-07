@@ -1,3 +1,8 @@
+Certainly! I'll integrate the new sections and fixes into your existing code. Here's the updated version:
+
+
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +23,7 @@
             width: 80%;
             margin: auto;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 20px;
         }
 
         /* Header Styling */
@@ -144,6 +149,64 @@
             }
         }
 
+        /* Hero Image Section */
+        .hero-image {
+            background-image: url('path_to_your_hero_image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px; /* Add space below the header */
+        }
+
+        .hero-text {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Services Section */
+        .service-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .service-box {
+            flex-basis: calc(25% - 20px);
+            background: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .service-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: #f4f4f4;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .contact-details, .opening-hours {
+            flex-basis: 48%;
+        }
+
         /* Modal for Pop-ups */
         .modal {
             display: none;
@@ -226,6 +289,21 @@
             margin-top: 20px;
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .service-box {
+                flex-basis: calc(50% - 20px);
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+
+            .contact-details, .opening-hours {
+                flex-basis: 100%;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -251,6 +329,14 @@
             </nav>
         </div>
     </header>
+
+    <!-- Hero Image Section -->
+    <section class="hero-image">
+        <div class="hero-text">
+            <h1>Welcome to Total Body Physio Titirangi</h1>
+            <p>Expert physiotherapy care in the heart of Titirangi</p>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <div class="container" id="services">
@@ -324,7 +410,30 @@
         </div>
     </section>
 
-    <!-- Modal Pop-up -->
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-details">
+                <h3>Get in Touch</h3>
+                <p>Phone: (09) 817 7377</p>
+                <p>Email: titirangi@totalbodyphysio.co.nz</p>
+                <p>Address: 2 Rangiwai Rd, Titirangi, Auckland</p>
+            </div>
+            <div class="opening-hours">
+                <h3>Opening Hours</h3>
+                <p>Monday: 8am - 5pm</p>
+                <p>Tuesday: 7am - 6pm</p>
+                <p>Wednesday: 9am - 1pm</p>
+                <p>Thursday: 9am - 6pm</p>
+                <p>Friday: 7am - 5pm</p>
+                <p>Saturday & Sunday: Closed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Pop
+```<!-- Modal Pop-up -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
