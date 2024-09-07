@@ -291,15 +291,55 @@
         </div>
     </div>
 
- <script>
-    alert("This is a test alert. If you see this, JavaScript is working.");
+<script>
+    // Get the modal
+    var modal = document.getElementById("modal");
 
-    document.body.style.border = "5px solid red";
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
+    // Function to open the modal
+    function openModal(title, content) {
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalContent").innerText = content;
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Add click event listeners to all service boxes
+    var serviceBoxes = document.getElementsByClassName("service-box");
+    for (var i = 0; i < serviceBoxes.length; i++) {
+        serviceBoxes[i].addEventListener("click", function() {
+            var service = this.getElementsByTagName("h3")[0].innerText;
+            openModal(service, "Details for " + service + " will go here.");
+        });
+    }
+
+    // Add click event listeners to all team members
+    var teamMembers = document.getElementsByClassName("team-member");
+    for (var i = 0; i < teamMembers.length; i++) {
+        teamMembers[i].addEventListener("click", function() {
+            var name = this.getElementsByTagName("h3")[0].innerText;
+            openModal(name, "Bio for " + name + " will go here.");
+        });
+    }
+
+    // Add a test button
     var testButton = document.createElement("button");
-    testButton.textContent = "Click me!";
+    testButton.textContent = "Test Modal";
     testButton.onclick = function() {
-        alert("Button clicked!");
+        openModal("Test", "This is a test modal.");
     };
     document.body.appendChild(testButton);
 </script>
