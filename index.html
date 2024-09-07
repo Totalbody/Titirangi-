@@ -35,7 +35,14 @@
             align-items: center;
             box-sizing: border-box;
         }
-
+/* Fix for Menu Positioned Too Low */
+header {
+    top: 0; /* Ensures the header is at the top */
+    left: 0;
+    right: 0;
+    position: fixed; /* Makes sure it's fixed at the top */
+    margin: 0; /* Remove any accidental margin */
+}
         header #branding {
             flex: 1;
         }
@@ -378,6 +385,14 @@
             if (event.target === modal) {
                 modal.style.display = "none";
             }
+       <!-- Modal Pop-up Structure -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalContent"></p>
+    </div>
+</div>
         };
 
         document.querySelectorAll('.team-member').forEach(member => {
@@ -395,6 +410,29 @@
             var answer = element.nextElementSibling;
             answer.style.display = answer.style.display === "block" ? "none" : "block";
         }
+// Modal logic for Services
+document.querySelectorAll('.service-box').forEach(box => {
+    box.addEventListener('click', function() {
+        const modal = document.getElementById("modal");
+        const title = this.querySelector('h3').innerText;
+        const content = this.querySelector('p').innerText;
+
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalContent").innerText = content;
+
+        modal.style.display = "block";
+    });
+});
+
+document.getElementsByClassName('close')[0].onclick = function() {
+    document.getElementById("modal").style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById("modal")) {
+        document.getElementById("modal").style.display = "none";
+    }
+};
     </script>
 </body>
 </html>
