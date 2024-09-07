@@ -4,14 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Body Physio - Titirangi Clinic</title>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total Body Physio - Titirangi Clinic</title>
     <style>
-        /* General Styling for Header Menu */
+        /* General Styling */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -26,6 +20,7 @@
             overflow: hidden;
         }
 
+        /* Header Styling */
         header {
             background: #1B3818;
             color: white;
@@ -73,7 +68,7 @@
             font-weight: bold;
         }
 
-        /* Responsive Menu Fix */
+        /* Mobile Menu */
         .menu-toggle {
             display: none;
             background: none;
@@ -100,14 +95,13 @@
 
             header nav ul {
                 flex-direction: column;
-                justify-content: flex-start;
+                justify-content: center;
                 padding: 0;
             }
 
             header nav ul li {
                 margin: 10px 0;
-                text-align: left;
-                padding: 10px;
+                text-align: center;
             }
 
             header nav ul li a {
@@ -128,20 +122,15 @@
             }
         }
 
-        /* Showcase Section */
-        #showcase {
-            background: url('path_to_clinic_image.jpg') no-repeat center center/cover;
-            height: 400px;
-            text-align: center;
-            color: #ffffff;
-            margin-top: 50px;
+        /* Services Section */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        #showcase h1 {
-            font-size: 45px;
-        }
-
-        /* Center Profile Boxes on Mobile */
+        /* Team Section Fix */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -162,9 +151,7 @@
 
         @media (max-width: 768px) {
             .team-grid {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
             }
 
             .team-member img {
@@ -205,6 +192,26 @@
             color: black;
         }
 
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            background-color: #F9F9F9;
+            color: black;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 0 0 5px 5px;
+        }
+
         /* Responsive Fix for Profile Boxes */
         @media (max-width: 768px) {
             .team-grid {
@@ -235,10 +242,10 @@
             <button class="menu-toggle">☰</button>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#team">Our Team</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -253,22 +260,50 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <div class="container" id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-box">
+                <img src="manual_therapy_image.jpg" alt="Manual Therapy">
+                <h3>Manual Therapy</h3>
+                <p>Hands-on treatment to relieve pain and improve mobility</p>
+            </div>
+            <div class="service-box">
+                <img src="careway_image.jpg" alt="Careway Pathway">
+                <h3>Careway Pathway</h3>
+                <p>ACC-funded comprehensive care for specific injuries</p>
+            </div>
+            <div class="service-box">
+                <img src="sports_injury_image.jpg" alt="Sports and Injury Rehab">
+                <h3>Sports and Injury Rehab</h3>
+                <p>Specialised care for athletes and active individuals</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="container" id="about">
+        <h2>About Us</h2>
+        <p>Total Body Physio has been serving the community since 2004. We offer a wide range of physiotherapy services...</p>
+    </div>
+
     <!-- Team Section -->
-    <div class="container">
-        <section id="team">
+    <div class="container" id="team">
+        <section>
             <h2>Our Team</h2>
             <div class="team-grid">
-                <div class="team-member">
+                <div class="team-member" data-content="Jade Warren has over 23 years of experience...">
                     <img src="path_to_jade_image.jpg" alt="Jade Warren">
                     <h3>Jade Warren</h3>
                     <p>Senior Physiotherapist</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member" data-content="Hans Vermeulen is a Senior Physiotherapist specialising...">
                     <img src="path_to_hans_image.jpg" alt="Hans Vermeulen">
                     <h3>Hans Vermeulen</h3>
                     <p>Senior Physiotherapist</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member" data-content="María Alonso is a Physio Assistant and Pilates Instructor...">
                     <img src="path_to_maria_image.jpg" alt="María Alonso">
                     <h3>María Alonso</h3>
                     <p>Physio Assistant & Pilates Instructor</p>
@@ -276,6 +311,19 @@
             </div>
         </section>
     </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What is an ACC injury?</div>
+            <div class="faq-answer">An ACC injury refers to an injury covered by the Accident Compensation Corporation...</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Do I need a referral to see a physiotherapist?</div>
+            <div class="faq-answer">No, you don’t need a referral to see a physiotherapist. You can book directly with us.</div>
+        </div>
+    </section>
 
     <!-- Modal Pop-up -->
     <div id="modal" class="modal">
@@ -312,254 +360,18 @@
         document.querySelectorAll('.team-member').forEach(member => {
             member.addEventListener('click', function() {
                 const name = this.querySelector('h3').innerText;
-                const content = this.querySelector('p').innerText;
+                const content = this.dataset.content;
                 document.getElementById("modalTitle").innerText = name;
                 document.getElementById("modalContent").innerText = content;
                 modal.style.display = "block";
             });
         });
-    </script>
-</body>
-</html>
 
-<script>
-    // Mobile Menu Toggle Script
-    const menuToggle = document.querySelector('.menu-toggle');
-    const header = document.querySelector('header');
-
-    menuToggle.addEventListener('click', () => {
-        header.classList.toggle('nav-active');
-    });
-</script>
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Total Body Physio</span> Titirangi</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#team">Our Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Showcase Section -->
-    <section id="showcase">
-        <div class="showcase-content">
-            <h1>Expert Physiotherapy Care</h1>
-            <p>Empowering movement, enhancing lives</p>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <div class="container">
-        <section id="services">
-            <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service-box" data-content="<ul><li><b>Massage Therapy:</b> Targets muscle relaxation and tension relief.</li><li><b>Joint Mobilisations:</b> Enhances joint movement and reduces stiffness.</li><li><b>Stretching Techniques:</b> Helps improve flexibility and range of motion.</li><li><b>Soft Tissue Techniques:</b> Reduces muscle pain and discomfort.</li><li>Effective for treating musculoskeletal issues and recovery from injuries.</li></ul>">
-                    <img src="manual_therapy_image.jpg" alt="Manual Therapy">
-                    <h3>Manual Therapy</h3>
-                    <p>Hands-on treatment to relieve pain and improve mobility</p>
-                </div>
-                <div class="service-box" data-content="<ul><li>The Careway Pathway is an ACC-funded program.</li><li>Comprehensive treatment plans, including rehabilitation, physical therapy, and exercise programs.</li><li>Designed for specific injuries to accelerate recovery.</li></ul>">
-                    <img src="careway_image.jpg" alt="Careway Pathway">
-                    <h3>Careway Pathway</h3>
-                    <p>ACC-funded comprehensive care for specific injuries</p>
-                </div>
-                <div class="service-box" data-content="<ul><li><b>Sports Therapy:</b> Custom exercise programs to ensure safe recovery.</li><li><b>Advanced Injury Rehabilitation:</b> Focused on athletic recovery and performance enhancement.</li><li><b>Free Knee Brace:</b> Available with ACC claim, if clinically appropriate.</li></ul>">
-                    <img src="sports_injury_image.jpg" alt="Sports and Injury Rehab">
-                    <h3>Sports and Injury Rehab</h3>
-                    <p>Specialised care for athletes and active individuals</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container contact-grid">
-            <!-- Left Column: Contact Details -->
-            <div class="contact-info">
-                <h2>Contact Us</h2>
-                <p>2 Rangiwai Rd, Titirangi 0604</p>
-                <p>Phone: (09) 817 7377</p>
-                <p>Email: amin@totalbodyphysio.co.nz</p>
-            </div>
-
-            <!-- Right Column: Opening Hours -->
-            <div class="opening-hours">
-                <h3>Opening Hours</h3>
-                <p>Monday: 9am - 5pm</p>
-                <p>Tuesday: 7am - 5pm</p>
-                <p>Wednesday: 9am - 5pm</p>
-                <p>Thursday: 8am - 5pm</p>
-                <p>Friday: 7am - 5pm</p>
-                <p>Saturday & Sunday: Closed</p>
-            </div>
-        </div>
-    </section>
-
-   
-
-    <!-- Team Section -->
-    <div class="container">
-        <section id="team">
-            <h2>Our Team</h2>
-            <div class="team-grid">
-                <div class="team-member" data-content="Jade Warren has over 23 years of experience and is known for detailed assessments and targeted rehabilitation plans. He focuses on delivering comprehensive care tailored to each individual's needs.">
-                    <img src="path_to_jade_image.jpg" alt="Jade Warren">
-                    <h3>Jade Warren</h3>
-                    <p>Senior Physiotherapist</p>
-                </div>
-                <div class="team-member" data-content="Hans Vermeulen is a Senior Physiotherapist specialising in manual therapy and CranioSacral Therapy. He focuses on relieving pain and restoring physical function, helping clients achieve optimal recovery.">
-                    <img src="path_to_hans_image.jpg" alt="Hans Vermeulen">
-                    <h3>Hans Vermeulen</h3>
-                    <p>Senior Physiotherapist</p>
-                </div>
-                <div class="team-member" data-content="María Alonso is a Physio Assistant and Pilates Instructor with over 10 years of experience. She specialises in massage therapy and women's health, bringing a hands-on approach to rehabilitation and fitness.">
-                    <img src="path_to_maria_image.jpg" alt="María Alonso">
-                    <h3>María Alonso</h3>
-                    <p>Physio Assistant & Pilates Instructor</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Modal Pop-up -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <p id="modalContent"></p>
-        </div>
-    </div>
-
-    <script>
-        var modal = document.getElementById("modal");
-        var span = document.getElementsByClassName("close")[0];
-
-        function openModal(title, content) {
-            document.getElementById("modalTitle").innerText = title;
-            document.getElementById("modalContent").innerHTML = content;
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        document.querySelectorAll('.service-box, .team-member').forEach(box => {
-            box.addEventListener('click', function() {
-                var title = this.querySelector('h3').innerText;
-                var content = this.getAttribute('data-content');
-                openModal(title, content);
-            });
-        });
-
+        // FAQ Toggle Function
         function toggleFAQ(element) {
             var answer = element.nextElementSibling;
             answer.style.display = answer.style.display === "block" ? "none" : "block";
         }
     </script>
-<!-- FAQ Section -->
-<section id="faq">
-    <div class="container">
-        <h2>Frequently Asked Questions</h2>
-
-        <!-- FAQ Item 1: ACC Injury -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">What is an ACC injury?</div>
-            <div class="faq-answer">An ACC injury refers to an injury covered by the Accident Compensation Corporation (ACC) in New Zealand. It typically includes injuries caused by accidents, such as sprains, fractures, and work-related injuries. ACC provides partial or full funding for your treatment, depending on the type and severity of your injury.</div>
-        </div>
-
-        <!-- FAQ Item 2: Pricing -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">What are your prices?</div>
-            <div class="faq-answer">
-                <p><strong>ACC-covered patients:</strong></p>
-                <ul>
-                    <li>$35 for the initial consultation</li>
-                    <li>$30 for each follow-up session</li>
-                </ul>
-                <p><strong>Private patients:</strong></p>
-                <ul>
-                    <li>$90 for the initial consultation</li>
-                    <li>$80 for each follow-up session</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- FAQ Item 3: Referral Requirement -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">Do I need a referral to see a physiotherapist?</div>
-            <div class="faq-answer">No, you don't need a referral to see a physiotherapist in New Zealand. You can book an appointment directly with us. However, if you're seeking treatment for an ACC-covered injury, you may need a referral from your GP or specialist for certain types of injuries. Contact us for advice if you're unsure.</div>
-        </div>
-
-        <!-- FAQ Item 4: What to Wear -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">What should I wear to my appointment?</div>
-            <div class="faq-answer">We recommend wearing comfortable, loose-fitting clothing that allows easy access to the area being treated. For lower body issues, shorts or loose trousers are ideal. For upper body concerns, a tank top or loose shirt works well. If needed, we can provide gowns or shorts during your appointment.</div>
-        </div>
-
-        <!-- FAQ Item 5: Appointment Length -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">How long does a physiotherapy session last?</div>
-            <div class="faq-answer">A typical physiotherapy session lasts between 30 to 45 minutes. Your first session may be longer (around 60 minutes) as it includes a comprehensive assessment of your condition, followed by treatment. Follow-up sessions are generally shorter, focusing on treatment and progress updates.</div>
-        </div>
-
-        <!-- FAQ Item 6: Number of Sessions -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">How many sessions will I need?</div>
-            <div class="faq-answer">The number of sessions required depends on your specific condition and how you respond to treatment. Most patients see improvement within 3 to 6 sessions, but more complex injuries may require ongoing care. We assess your progress at each session and adjust the treatment plan accordingly.</div>
-        </div>
-
-        <!-- FAQ Item 7: Conditions Treated -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">What conditions do you treat?</div>
-            <div class="faq-answer">We treat a wide range of conditions, including musculoskeletal injuries (e.g., sprains, strains, fractures), sports injuries, chronic pain, post-surgical rehabilitation, arthritis, and more. If you're unsure whether physiotherapy can help with your condition, feel free to contact us for advice.</div>
-        </div>
-
-        <!-- FAQ Item 8: Pilates Classes -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">Do you offer Pilates classes?</div>
-            <div class="faq-answer">Yes, we offer both one-on-one and group Pilates classes. Pilates is excellent for improving core strength, flexibility, and posture. It is a great complement to physiotherapy, especially for injury prevention and recovery. Contact us to learn more about our Pilates programs.</div>
-        </div>
-
-        <!-- FAQ Item 9: Payment Methods -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">What payment methods do you accept?</div>
-            <div class="faq-answer">We accept cash, EFTPOS, and major credit/debit cards. ACC co-payments can be made directly after your appointment. If you have any specific billing queries, feel free to ask at the time of your appointment or contact us beforehand.</div>
-        </div>
-
-        <!-- FAQ Item 10: Appointment Rescheduling -->
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">Can I cancel or reschedule my appointment?</div>
-            <div class="faq-answer">Yes, if you need to cancel or reschedule your appointment, we kindly ask that you give us at least 24 hours' notice. This allows us to offer the appointment time to other patients who may need it. You can reschedule by calling our clinic or using our online booking system.</div>
-        </div>
-
-    </div>
-</section>
-
-<script>
-    function toggleFAQ(element) {
-        var answer = element.nextElementSibling;
-        answer.style.display = answer.style.display === "block" ? "none" : "block";
-    }
-</script>
 </body>
 </html>
