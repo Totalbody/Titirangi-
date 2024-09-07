@@ -267,20 +267,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">What is an ACC injury?</div>
-                <div class="faq-answer">An ACC injury refers to an injury covered by the Accident Compensation Corporation (ACC) in New Zealand. It typically includes injuries caused by accidents, such as sprains, fractures, and work-related injuries. ACC provides partial or full funding for your treatment.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">What are your prices?</div>
-                <div class="faq-answer">ACC-covered patients: $35 initial consultation, $30 follow-up. Private patients: $90 initial consultation, $80 follow-up.</div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Team Section -->
     <div class="container">
@@ -348,6 +335,90 @@
             answer.style.display = answer.style.display === "block" ? "none" : "block";
         }
     </script>
+<!-- FAQ Section -->
+<section id="faq">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
 
+        <!-- FAQ Item 1: ACC Injury -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What is an ACC injury?</div>
+            <div class="faq-answer">An ACC injury refers to an injury covered by the Accident Compensation Corporation (ACC) in New Zealand. It typically includes injuries caused by accidents, such as sprains, fractures, and work-related injuries. ACC provides partial or full funding for your treatment, depending on the type and severity of your injury.</div>
+        </div>
+
+        <!-- FAQ Item 2: Pricing -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What are your prices?</div>
+            <div class="faq-answer">
+                <p><strong>ACC-covered patients:</strong></p>
+                <ul>
+                    <li>$35 for the initial consultation</li>
+                    <li>$30 for each follow-up session</li>
+                </ul>
+                <p><strong>Private patients:</strong></p>
+                <ul>
+                    <li>$90 for the initial consultation</li>
+                    <li>$80 for each follow-up session</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FAQ Item 3: Referral Requirement -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Do I need a referral to see a physiotherapist?</div>
+            <div class="faq-answer">No, you don't need a referral to see a physiotherapist in New Zealand. You can book an appointment directly with us. However, if you're seeking treatment for an ACC-covered injury, you may need a referral from your GP or specialist for certain types of injuries. Contact us for advice if you're unsure.</div>
+        </div>
+
+        <!-- FAQ Item 4: What to Wear -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What should I wear to my appointment?</div>
+            <div class="faq-answer">We recommend wearing comfortable, loose-fitting clothing that allows easy access to the area being treated. For lower body issues, shorts or loose trousers are ideal. For upper body concerns, a tank top or loose shirt works well. If needed, we can provide gowns or shorts during your appointment.</div>
+        </div>
+
+        <!-- FAQ Item 5: Appointment Length -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">How long does a physiotherapy session last?</div>
+            <div class="faq-answer">A typical physiotherapy session lasts between 30 to 45 minutes. Your first session may be longer (around 60 minutes) as it includes a comprehensive assessment of your condition, followed by treatment. Follow-up sessions are generally shorter, focusing on treatment and progress updates.</div>
+        </div>
+
+        <!-- FAQ Item 6: Number of Sessions -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">How many sessions will I need?</div>
+            <div class="faq-answer">The number of sessions required depends on your specific condition and how you respond to treatment. Most patients see improvement within 3 to 6 sessions, but more complex injuries may require ongoing care. We assess your progress at each session and adjust the treatment plan accordingly.</div>
+        </div>
+
+        <!-- FAQ Item 7: Conditions Treated -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What conditions do you treat?</div>
+            <div class="faq-answer">We treat a wide range of conditions, including musculoskeletal injuries (e.g., sprains, strains, fractures), sports injuries, chronic pain, post-surgical rehabilitation, arthritis, and more. If you're unsure whether physiotherapy can help with your condition, feel free to contact us for advice.</div>
+        </div>
+
+        <!-- FAQ Item 8: Pilates Classes -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Do you offer Pilates classes?</div>
+            <div class="faq-answer">Yes, we offer both one-on-one and group Pilates classes. Pilates is excellent for improving core strength, flexibility, and posture. It is a great complement to physiotherapy, especially for injury prevention and recovery. Contact us to learn more about our Pilates programs.</div>
+        </div>
+
+        <!-- FAQ Item 9: Payment Methods -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What payment methods do you accept?</div>
+            <div class="faq-answer">We accept cash, EFTPOS, and major credit/debit cards. ACC co-payments can be made directly after your appointment. If you have any specific billing queries, feel free to ask at the time of your appointment or contact us beforehand.</div>
+        </div>
+
+        <!-- FAQ Item 10: Appointment Rescheduling -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Can I cancel or reschedule my appointment?</div>
+            <div class="faq-answer">Yes, if you need to cancel or reschedule your appointment, we kindly ask that you give us at least 24 hours' notice. This allows us to offer the appointment time to other patients who may need it. You can reschedule by calling our clinic or using our online booking system.</div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    function toggleFAQ(element) {
+        var answer = element.nextElementSibling;
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+    }
+</script>
 </body>
 </html>
