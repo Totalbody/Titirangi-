@@ -369,7 +369,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
    <!-- Services Section -->
 <div class="container" id="services">
     <h2>Our Services</h2>
@@ -462,55 +461,6 @@
     </div>
 </div>
 
-        <!-- Careway Pathway -->
-        <div class="service-box" data-content="Careway Pathway:
-        Our ACC-funded programme helps you recover from injury at your own pace.
-        Key features:
-        • Comprehensive care for workplace or sports injuries
-        • Customised rehabilitation plans
-        • Support from start to finish of your recovery
-        Benefits:
-        • Full ACC support for funding
-        • Personalised treatment at every step
-        • Aimed at getting you back to full function">
-            <img src="careway_image.jpg" alt="Careway Pathway">
-            <h3>Careway Pathway</h3>
-            <p>ACC-funded comprehensive care for specific injuries</p>
-        </div>
-
-        <!-- Sports and Injury Rehab -->
-        <div class="service-box" data-content="Sports and Injury Rehab:
-        We specialise in helping active people get back to doing what they love.
-        Key services:
-        • Sports injury treatment
-        • Rehabilitation to restore strength and movement
-        • Prevention of future injuries
-        Benefits:
-        • Tailored to athletes and active individuals
-        • Full recovery plan to get back to sport safely
-        • Focus on performance and injury prevention">
-            <img src="sports_injury_image.jpg" alt="Sports and Injury Rehab">
-            <h3>Sports and Injury Rehab</h3>
-            <p>Specialised care for athletes and active individuals</p>
-        </div>
-
-        <!-- Pilates -->
-        <div class="service-box" data-content="Pilates:
-        Pilates is perfect for strengthening your core and improving flexibility.
-        Focus areas:
-        • Core strength to support the spine
-        • Improved posture and balance
-        • Tailored exercises for all fitness levels
-        Benefits:
-        • Ideal for rehabilitation and injury prevention
-        • Great for reducing chronic pain
-        • Enhances flexibility and movement">
-            <img src="pilates_image.jpg" alt="Pilates">
-            <h3>Pilates</h3>
-            <p>Core strengthening and flexibility training</p>
-        </div>
-    </div>
-</div>
     <!-- About Us Section -->
     <div class="container" id="about">
         <h2>About Us</h2>
@@ -549,7 +499,6 @@
     </div>
 
     <!-- FAQ Section -->
- <!-- FAQ Section -->
 <section id="faq" class="container">
     <h2>Frequently Asked Questions</h2>
     
@@ -573,38 +522,51 @@
         <div class="faq-answer">It’s best to wear comfortable, loose-fitting clothing that allows for easy movement. For specific injuries, you might need to expose the affected area (e.g., wearing shorts for a knee injury).</div>
     </div>
 </section>
-    <!-- JavaScript for modal functionality -->
+
+    <!-- Modal structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+        </div>
+    </div>
+
+    <!-- JavaScript for modal functionality and FAQ accordion -->
     <script>
-        // Function to open the modal
+        // Modal Functionality for Team and Services
         function openModal(content) {
             const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modal-content');
-            modalContent.innerHTML = content;
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.innerHTML = content + '<span class="close">&times;</span>';
             modal.style.display = 'block';
         }
 
-        // Function to close the modal
         function closeModal() {
             const modal = document.getElementById('modal');
             modal.style.display = 'none';
         }
 
-        // Add event listeners to team members, service boxes, and FAQ items
-document.querySelectorAll('.team-member, .service-box, .faq-item').forEach(item => {
-    item.addEventListener('click', function () {
-        const content = this.getAttribute('data-content');
-        openModal(content);
-    });
-});
+        // Add event listeners to team members and service boxes
+        document.querySelectorAll('.team-member, .service-box').forEach(item => {
+            item.addEventListener('click', function () {
+                const content = this.getAttribute('data-content');
+                openModal(content);
+            });
+        });
 
         // Close modal when the close button is clicked
-        document.querySelector('.close').addEventListener('click', closeModal);
-
-        // Close modal when clicking outside the modal content
-        window.onclick = function (event) {
-            const modal = document.getElementById('modal');
-            if (event.target === modal) {
+        document.querySelector('.modal').addEventListener('click', function(event) {
+            if (event.target.classList.contains('close') || event.target === this) {
                 closeModal();
+            }
+        });
+
+        // FAQ Accordion
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
             }
         }
     </script>
