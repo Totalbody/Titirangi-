@@ -534,6 +534,52 @@
     // ... (previous JavaScript code remains the same)
 
     // Service Box Modal
+  <script>
+    // Mobile Menu Toggle Script
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuClose = document.querySelector('.menu-close');
+    const header = document.querySelector('header');
+
+    menuToggle.addEventListener('click', () => {
+        header.classList.add('nav-active');
+    });
+
+    menuClose.addEventListener('click', () => {
+        header.classList.remove('nav-active');
+    });
+
+    // Modal Pop-up Logic
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalContent = document.getElementById("modalContent");
+    const closeModal = document.querySelector(".close");
+
+    function openModal(title, content) {
+        modalTitle.textContent = title;
+        modalContent.innerHTML = content;
+        modal.style.display = "block";
+    }
+
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Team Member Modal
+    document.querySelectorAll('.team-member').forEach(member => {
+        member.addEventListener('click', function() {
+            const name = this.querySelector('h3').textContent;
+            const content = this.getAttribute('data-content');
+            openModal(name, content);
+        });
+    });
+
+    // Service Box Modal
     document.querySelectorAll('.service-box').forEach(box => {
         box.addEventListener('click', function() {
             const title = this.querySelector('h3').textContent;
@@ -550,7 +596,6 @@
                         "<li><strong>Strengthening Exercises:</strong> Targeted exercises to improve muscle strength, stability, and support around joints.</li></ul>" +
                         "Manual therapy is suitable for various conditions such as back pain, neck stiffness, sports injuries, and chronic muscle tightness. It can significantly reduce pain, improve function, and speed up recovery.";
                     break;
-
                 case "Careway Pathway":
                     content += "<br><br>The Careway Pathway is an ACC-funded program designed to support your recovery following an injury. Whether it's a workplace, sports, or accident-related injury, the program ensures you receive personalized care every step of the way.<ul>" +
                         "<li><strong>Initial Assessment:</strong> A thorough evaluation to understand the nature of your injury and plan an appropriate course of treatment.</li>" +
@@ -560,7 +605,6 @@
                         "<li><strong>Return to Activity Support:</strong> Guidance on safely returning to work, sport, or daily activities, helping to minimize the risk of re-injury.</li></ul>" +
                         "With Careway Pathway, you'll have a clear plan and dedicated support to recover from your injury, ensuring a smooth and effective rehabilitation.";
                     break;
-
                 case "Sports and Injury Rehab":
                     content += "<br><br>Our Sports and Injury Rehabilitation service is designed for athletes and active individuals recovering from sports-related injuries. Whether you're a weekend warrior or a professional athlete, we help you return to your activities stronger and healthier.<ul>" +
                         "<li><strong>Comprehensive Injury Assessment:</strong> A detailed evaluation to understand the underlying cause of your injury and its impact on your performance.</li>" +
@@ -570,7 +614,6 @@
                         "<li><strong>Injury Prevention:</strong> Education and training on how to avoid future injuries, with a focus on proper mechanics and strengthening.</li></ul>" +
                         "We are dedicated to helping you recover fully and safely, improving your performance and preventing re-injury.";
                     break;
-
                 case "Pilates":
                     content += "<br><br>Pilates is a low-impact exercise method that focuses on core strength, flexibility, balance, and overall body awareness. It's perfect for rehabilitation and general fitness, suitable for all ages and abilities.<ul>" +
                         "<li><strong>Core Strength:</strong> Pilates emphasizes the development of a strong core, essential for supporting the spine and improving posture.</li>" +
@@ -591,6 +634,10 @@
         var answer = element.nextElementSibling;
         answer.style.display = answer.style.display === "block" ? "none" : "block";
     }
+
+    // Debug log to check if script is running
+    console.log("Script loaded and running");
 </script>
+
 </body>
 </html>
