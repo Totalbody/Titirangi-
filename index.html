@@ -438,3 +438,46 @@
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">What is an ACC injury?</div>
             <div class="faq-answer">An ACC injury
+<!-- Modal structure -->
+<div id="modal" class="modal">
+    <div class="modal-content" id="modal-content">
+        <span class="close">&times;</span>
+        <!-- Dynamic content will be inserted here -->
+    </div>
+</div>
+
+<!-- JavaScript for modal functionality -->
+<script>
+    // Function to open the modal
+    function openModal(content) {
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+        modalContent.innerHTML = content;
+        modal.style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+    }
+
+    // Add event listeners to the team members
+    document.querySelectorAll('.team-member').forEach(member => {
+        member.addEventListener('click', function () {
+            const content = this.getAttribute('data-content');
+            openModal(content);
+        });
+    });
+
+    // Close modal when the close button is clicked
+    document.querySelector('.close').addEventListener('click', closeModal);
+
+    // Close modal when clicking outside the modal content
+    window.onclick = function (event) {
+        const modal = document.getElementById('modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+</script>
