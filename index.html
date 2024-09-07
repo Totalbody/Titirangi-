@@ -254,6 +254,7 @@
             float: right;
             font-size: 28px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         .close:hover {
@@ -372,22 +373,22 @@
     <div class="container" id="services">
         <h2>Our Services</h2>
         <div class="service-grid">
-            <div class="service-box">
+            <div class="service-box" data-content="Manual Therapy: Hands-on treatment to relieve pain and improve mobility.">
                 <img src="manual_therapy_image.jpg" alt="Manual Therapy">
                 <h3>Manual Therapy</h3>
                 <p>Hands-on treatment to relieve pain and improve mobility</p>
             </div>
-            <div class="service-box">
+            <div class="service-box" data-content="Careway Pathway: ACC-funded comprehensive care for specific injuries.">
                 <img src="careway_image.jpg" alt="Careway Pathway">
                 <h3>Careway Pathway</h3>
                 <p>ACC-funded comprehensive care for specific injuries</p>
             </div>
-            <div class="service-box">
+            <div class="service-box" data-content="Sports and Injury Rehab: Specialised care for athletes and active individuals.">
                 <img src="sports_injury_image.jpg" alt="Sports and Injury Rehab">
                 <h3>Sports and Injury Rehab</h3>
                 <p>Specialised care for athletes and active individuals</p>
             </div>
-            <div class="service-box">
+            <div class="service-box" data-content="Pilates: Core strengthening and flexibility training.">
                 <img src="pilates_image.jpg" alt="Pilates">
                 <h3>Pilates</h3>
                 <p>Core strengthening and flexibility training</p>
@@ -465,9 +466,9 @@
             modal.style.display = 'none';
         }
 
-        // Add event listeners to the team members
-        document.querySelectorAll('.team-member').forEach(member => {
-            member.addEventListener('click', function () {
+        // Add event listeners to team members and service boxes
+        document.querySelectorAll('.team-member, .service-box').forEach(item => {
+            item.addEventListener('click', function () {
                 const content = this.getAttribute('data-content');
                 openModal(content);
             });
