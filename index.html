@@ -31,6 +31,7 @@
             text-decoration: none; 
             text-transform: uppercase; 
             font-size: 16px; 
+            padding: 0 20px; /* Added padding to space out menu items */
         }
         header #branding { 
             float: left; 
@@ -252,6 +253,11 @@
             letter-spacing: 1px;
             line-height: 1.8;
         }
+        /* Detailed content for team and services */
+        .team-member p, .service-box p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
         /* Simplify team member bio on mobile */
         @media(max-width: 768px) {
             .team-member p {
@@ -289,7 +295,7 @@
     <section id="about">
         <div class="container">
             <h2>About Us</h2>
-            <p>Jade and Hans and the team Total Body Physio Titirangi has been serving our community since 2004. Our clinic, located in the heart of Titirangi Village, offers expert physiotherapy care in a welcoming environment.</p>
+            <p>Total Body Physio Titirangi has been serving the community since 2004. Our clinic, located in the heart of Titirangi Village, offers expert physiotherapy care in a welcoming environment.</p>
             <p>Whether you're recovering from an injury, managing chronic pain, or looking to improve your overall physical function, we're here to support you every step of the way.</p>
         </div>
     </section>
@@ -300,19 +306,19 @@
             <div class="service-grid">
                 <div class="service-box">
                     <h3>Manual Therapy</h3>
-                    <p>Hands-on treatment to relieve pain and improve mobility</p>
+                    <p>Hands-on treatment to relieve pain and improve mobility. Our expert physiotherapists use techniques like joint manipulation, massage, and muscle release to improve your overall physical function. This approach is highly effective for musculoskeletal issues.</p>
                 </div>
                 <div class="service-box">
                     <h3>Pilates</h3>
-                    <p>Improve core strength, flexibility, and body awareness</p>
+                    <p>Improve core strength, flexibility, and body awareness. Our tailored Pilates programs are perfect for recovering from injury or maintaining fitness. Ideal for reducing back pain and enhancing posture.</p>
                 </div>
                 <div class="service-box">
                     <h3>Careway Pathway</h3>
-                    <p>ACC-funded comprehensive care for specific injuries</p>
+                    <p>ACC-funded comprehensive care for specific injuries. We guide you through every step of your recovery journey, ensuring you get the right care for faster, more efficient healing.</p>
                 </div>
                 <div class="service-box">
                     <h3>Sports and Injury Rehab</h3>
-                    <p>Specialised care for athletes and active individuals</p>
+                    <p>Specialised care for athletes and active individuals. Our rehab programs combine advanced therapeutic techniques with personalised exercises to ensure a safe return to your sport.</p>
                 </div>
             </div>
         </section>
@@ -323,17 +329,17 @@
                 <div class="team-member">
                     <img src="path_to_jade_image.jpg" alt="Jade Warren">
                     <h3>Jade Warren</h3>
-                    <p>Senior Physiotherapist</p>
+                    <p>Senior Physiotherapist with over 23 years of experience. Jade focuses on detailed assessments and targeted rehabilitation plans to help clients achieve optimal results.</p>
                 </div>
                 <div class="team-member">
                     <img src="path_to_hans_image.jpg" alt="Hans Vermeulen">
                     <h3>Hans Vermeulen</h3>
-                    <p>Physiotherapist</p>
+                    <p>Physiotherapist specialising in CranioSacral Therapy, known for his gentle and holistic approach to relieving pain and tension, helping patients feel their best.</p>
                 </div>
                 <div class="team-member">
                     <img src="path_to_maria_image.jpg" alt="María Alonso">
                     <h3>María Alonso</h3>
-                    <p>Physiotherapist Assistant & Pilates Instructor</p>
+                    <p>Physiotherapist & Pilates Instructor with expertise in massage therapy and women’s health. María brings energy and passion to each session.</p>
                 </div>
             </div>
         </section>
@@ -364,12 +370,24 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">What are your prices?</div>
-                <div class="faq-answer">For ACC-covered patients: $35 initial consultation, $30 follow-up. Private: $90 initial consultation, $80 follow-up.</div>
+                <div class="faq-answer">
+                    ACC-covered patients: 
+                    <ul>
+                        <li>$35 initial consultation</li>
+                        <li>$30 follow-up session</li>
+                    </ul>
+                    Private patients: 
+                    <ul>
+                        <li>$90 initial consultation</li>
+                        <li>$80 follow-up session</li>
+                    </ul>
+                </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">How do I book an appointment?</div>
                 <div class="faq-answer">You can book by calling us at (09) 817 7377 or by using the <a href="your-booking-link">Book Now</a> link on our website.</div>
             </div>
+            <!-- Other FAQ items go here -->
         </div>
     </section>
 
