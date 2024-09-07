@@ -18,14 +18,14 @@
             width: 80%;
             margin: auto;
             overflow: hidden;
-            padding-top: 80px; /* Padding added to prevent header overlap */
+            padding-top: 80px;
         }
 
         /* Header Styling */
         header {
             background: #1B3818;
             color: white;
-            padding: 1rem 0;
+            padding: 0.5rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -35,16 +35,15 @@
             align-items: center;
             box-sizing: border-box;
         }
-/* Fix for Menu Positioned Too Low */
-header {
-    top: 0; /* Ensures the header is at the top */
-    left: 0;
-    right: 0;
-    position: fixed; /* Makes sure it's fixed at the top */
-    margin: 0; /* Remove any accidental margin */
-}
+
         header #branding {
             flex: 1;
+            padding-left: 20px;
+        }
+
+        header #branding h1 {
+            margin: 0;
+            padding: 0;
         }
 
         header nav {
@@ -91,7 +90,7 @@ header {
             header nav {
                 display: none;
                 position: absolute;
-                top: 60px; /* Ensures the dropdown appears just below the header */
+                top: 60px;
                 left: 0;
                 width: 100%;
                 background: #1B3818;
@@ -121,6 +120,27 @@ header {
                 display: block;
                 position: absolute;
                 right: 20px;
+                top: 15px;
+            }
+
+            .menu-close {
+                display: none;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5em;
+                cursor: pointer;
+            }
+
+            header.nav-active .menu-toggle {
+                display: none;
+            }
+
+            header.nav-active .menu-close {
+                display: block;
             }
         }
 
@@ -216,15 +236,16 @@ header {
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.4);
+            overflow-y: auto;
         }
 
         .modal-content {
             background-color: #fff;
-            margin: 15% auto;
+            margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 600px;
+            max-width: 800px;
             border-radius: 5px;
         }
 
@@ -270,6 +291,7 @@ header {
                 <h1><span class="highlight">Total Body Physio</span> Titirangi</h1>
             </div>
             <button class="menu-toggle">☰</button>
+            <button class="menu-close">✕</button>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#services">Our Services</a></li>
@@ -309,6 +331,11 @@ header {
                 <h3>Sports and Injury Rehab</h3>
                 <p>Specialised care for athletes and active individuals</p>
             </div>
+            <div class="service-box">
+                <img src="pilates_image.jpg" alt="Pilates">
+                <h3>Pilates</h3>
+                <p>Core strengthening and flexibility training</p>
+            </div>
         </div>
     </div>
 
@@ -323,17 +350,17 @@ header {
         <section>
             <h2>Our Team</h2>
             <div class="team-grid">
-                <div class="team-member" data-content="Jade Warren has over 23 years of experience...">
+                <div class="team-member" data-content="Jade Warren has over 23 years of experience in physiotherapy. He specializes in sports injuries, chronic pain management, and post-operative rehabilitation. Jade is known for his detailed assessments and personalized treatment plans that help patients achieve optimal results.">
                     <img src="path_to_jade_image.jpg" alt="Jade Warren">
                     <h3>Jade Warren</h3>
                     <p>Senior Physiotherapist</p>
                 </div>
-                <div class="team-member" data-content="Hans Vermeulen is a Senior Physiotherapist specialising...">
+                <div class="team-member" data-content="Hans Vermeulen is a Senior Physiotherapist specializing in manual therapy and CranioSacral Therapy. With his holistic approach, Hans helps patients not only recover from injuries but also improve their overall well-being. He has a particular interest in treating chronic conditions and stress-related disorders.">
                     <img src="path_to_hans_image.jpg" alt="Hans Vermeulen">
                     <h3>Hans Vermeulen</h3>
                     <p>Senior Physiotherapist</p>
                 </div>
-                <div class="team-member" data-content="María Alonso is a Physio Assistant and Pilates Instructor...">
+                <div class="team-member" data-content="María Alonso is a highly skilled Physio Assistant and Pilates Instructor with over 10 years of experience. She has worked with WTA athletes and specializes in women's health. María's expertise in Pilates and massage therapy complements our physiotherapy services, offering a well-rounded approach to patient care.">
                     <img src="path_to_maria_image.jpg" alt="María Alonso">
                     <h3>María Alonso</h3>
                     <p>Physio Assistant & Pilates Instructor</p>
@@ -347,11 +374,23 @@ header {
         <h2>Frequently Asked Questions</h2>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">What is an ACC injury?</div>
-            <div class="faq-answer">An ACC injury refers to an injury covered by the Accident Compensation Corporation...</div>
+            <div class="faq-answer">An ACC injury refers to an injury covered by the Accident Compensation Corporation in New Zealand. This includes injuries from accidents at work, home, or during sports activities. ACC provides support for treatment and rehabilitation of these injuries.</div>
         </div>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">Do I need a referral to see a physiotherapist?</div>
-            <div class="faq-answer">No, you don’t need a referral to see a physiotherapist. You can book directly with us.</div>
+            <div class="faq-answer">No, you don't need a referral to see a physiotherapist. You can book directly with us. However, if you're seeking treatment for an ACC-covered injury, you may need a referral from your GP or specialist.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">How long does a typical physiotherapy session last?</div>
+            <div class="faq-answer">A typical physiotherapy session at Total Body Physio lasts between 30 to 60 minutes, depending on the nature and complexity of your condition. Initial consultations may take longer as they include a comprehensive assessment.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What should I wear to my physiotherapy appointment?</div>
+            <div class="faq-answer">We recommend wearing comfortable, loose-fitting clothing that allows easy access to the area being treated. For lower body issues, shorts or loose trousers are ideal. For upper body concerns, a tank top or loose shirt works well.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">How many sessions will I need?</div>
+            <div class="faq-answer">The number of sessions required varies depending on your specific condition, its severity, and how your body responds to treatment. After your initial assessment, your physiotherapist will provide a treatment plan and an estimate of the number of sessions you might need.</div>
         </div>
     </section>
 
@@ -367,10 +406,15 @@ header {
     <script>
         // Mobile Menu Toggle Script
         const menuToggle = document.querySelector('.menu-toggle');
+        const menuClose = document.querySelector('.menu-close');
         const header = document.querySelector('header');
 
         menuToggle.addEventListener('click', () => {
-            header.classList.toggle('nav-active');
+            header.classList.add('nav-active');
+        });
+
+        menuClose.addEventListener('click', () => {
+            header.classList.remove('nav-active');
         });
 
         // Modal Pop-up Logic
@@ -385,54 +429,8 @@ header {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
-       <!-- Modal Pop-up Structure -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <p id="modalContent"></p>
-    </div>
-</div>
         };
 
+        // Team Member Modal
         document.querySelectorAll('.team-member').forEach(member => {
             member.addEventListener('click', function() {
-                const name = this.querySelector('h3').innerText;
-                const content = this.dataset.content;
-                document.getElementById("modalTitle").innerText = name;
-                document.getElementById("modalContent").innerText = content;
-                modal.style.display = "block";
-            });
-        });
-
-        // FAQ Toggle Function
-        function toggleFAQ(element) {
-            var answer = element.nextElementSibling;
-            answer.style.display = answer.style.display === "block" ? "none" : "block";
-        }
-// Modal logic for Services
-document.querySelectorAll('.service-box').forEach(box => {
-    box.addEventListener('click', function() {
-        const modal = document.getElementById("modal");
-        const title = this.querySelector('h3').innerText;
-        const content = this.querySelector('p').innerText;
-
-        document.getElementById("modalTitle").innerText = title;
-        document.getElementById("modalContent").innerText = content;
-
-        modal.style.display = "block";
-    });
-});
-
-document.getElementsByClassName('close')[0].onclick = function() {
-    document.getElementById("modal").style.display = "none";
-};
-
-window.onclick = function(event) {
-    if (event.target == document.getElementById("modal")) {
-        document.getElementById("modal").style.display = "none";
-    }
-};
-    </script>
-</body>
-</html>
