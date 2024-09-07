@@ -144,59 +144,6 @@
             }
         }
 
-        /* Showcase Section */
-        #showcase {
-            background: url('path_to_clinic_image.jpg') no-repeat center center/cover;
-            height: 400px;
-            text-align: center;
-            color: #ffffff;
-            margin-top: 50px;
-        }
-
-        #showcase h1 {
-            font-size: 45px;
-        }
-
-        /* Services Section */
-        #services h2 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .service-box {
-            border: 1px solid #1B3818;
-            border-radius: 5px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .service-box img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        .service-box h3 {
-            margin-top: 10px;
-        }
-
-        .service-box:hover {
-            background-color: #f4f4f4;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
         /* Modal for Pop-ups */
         .modal {
             display: none;
@@ -251,6 +198,34 @@
             margin-bottom: 20px;
         }
 
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            background-color: #F9F9F9;
+            color: black;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 0 0 5px 5px;
+        }
+
+        /* Additional Styling for About and Team */
+        .team-grid, .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 
@@ -303,6 +278,51 @@
             </div>
         </div>
     </div>
+
+    <!-- About Us Section -->
+    <div class="container" id="about">
+        <h2>About Us</h2>
+        <p>Total Body Physio has been serving the Titirangi community since 2004, offering a wide range of physiotherapy services. Our mission is to provide personalized care that helps you achieve your physical goals, whether recovering from an injury or improving overall well-being. Our expert team is committed to using hands-on therapy and evidence-based treatment to guide you on your path to recovery.</p>
+    </div>
+
+    <!-- Our Team Section -->
+    <div class="container" id="team">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member" data-content="Jade Warren has over 23 years of experience in physiotherapy. He specializes in sports injuries, chronic pain management, and post-operative rehabilitation. Jade is known for his detailed assessments and personalized treatment plans that help patients achieve optimal results.<br><br><a href='https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=146146' class='book-button'>Book with Jade</a>">
+                <img src="path_to_jade_image.jpg" alt="Jade Warren">
+                <h3>Jade Warren</h3>
+                <p>Senior Physiotherapist</p>
+            </div>
+            <div class="team-member" data-content="Hans Vermeulen is a Senior Physiotherapist specializing in manual therapy and CranioSacral Therapy. With his holistic approach, Hans helps patients not only recover from injuries but also improve their overall well-being. He has a particular interest in treating chronic conditions and stress-related disorders.<br><br><a href='https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=151541' class='book-button'>Book with Hans</a>">
+                <img src="path_to_hans_image.jpg" alt="Hans Vermeulen">
+                <h3>Hans Vermeulen</h3>
+                <p>Senior Physiotherapist</p>
+            </div>
+            <div class="team-member" data-content="María Alonso is a highly skilled Physio Assistant and Pilates Instructor with over 10 years of experience. She has worked with WTA athletes and specializes in women's health. María's expertise in Pilates and massage therapy complements our physiotherapy services, offering a well-rounded approach to patient care.<br><br><a href='https://total-body-physio.au1.cliniko.com/bookings?business_id=90865&practitioner_id=1414969921577682942' class='book-button'>Book with María</a>">
+                <img src="path_to_maria_image.jpg" alt="María Alonso">
+                <h3>María Alonso</h3>
+                <p>Physio Assistant & Pilates Instructor</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What is an ACC injury?</div>
+            <div class="faq-answer">An ACC injury refers to an injury covered by the Accident Compensation Corporation in New Zealand. This includes injuries from accidents at work, home, or during sports activities. ACC provides support for treatment and rehabilitation of these injuries.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">How do I book an appointment?</div>
+            <div class="faq-answer">You can book an appointment online through our website or by calling us at (09) 817 7377.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">What are your prices?</div>
+            <div class="faq-answer">For ACC-covered injuries, the initial consultation is $35, and follow-up sessions are $30. For private patients, the initial consultation is $90, and follow-ups are $80.</div>
+        </div>
+    </section>
 
     <!-- Modal Pop-up -->
     <div id="modal" class="modal">
