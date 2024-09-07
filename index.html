@@ -530,52 +530,67 @@
             let content = this.querySelector('p').textContent;
             
             // Add more detailed content based on the service type
+          <script>
+    // ... (previous JavaScript code remains the same)
+
+    // Service Box Modal
+    document.querySelectorAll('.service-box').forEach(box => {
+        box.addEventListener('click', function() {
+            const title = this.querySelector('h3').textContent;
+            let content = this.querySelector('p').textContent;
+            
+            // Add more detailed content based on the service type
             switch (title) {
-    case "Manual Therapy":
-        content += "<br><br>Manual Therapy is a hands-on approach used by physiotherapists to treat musculoskeletal conditions, alleviate pain, and restore movement. Our experienced therapists use a variety of techniques designed to relax muscles, reduce stiffness, and improve mobility.<ul>" +
-            "<li><strong>Massage:</strong> A therapeutic technique to increase blood flow, ease muscle tension, and reduce pain caused by stress, injury, or overuse.</li>" +
-            "<li><strong>Trigger Point Release:</strong> Focused pressure on sensitive areas in the muscles (trigger points) to relieve pain and tension.</li>" +
-            "<li><strong>Joint Mobilizations:</strong> Gentle movements applied to stiff or restricted joints to increase range of motion and reduce discomfort.</li>" +
-            "<li><strong>Stretching:</strong> Guided stretches that help improve flexibility, relieve tightness, and prevent injury.</li>" +
-            "<li><strong>Strengthening Exercises:</strong> Targeted exercises to improve muscle strength, stability, and support around joints.</li></ul>" +
-            "Manual therapy is suitable for various conditions such as back pain, neck stiffness, sports injuries, and chronic muscle tightness. It can significantly reduce pain, improve function, and speed up recovery.";
-        break;
+                case "Manual Therapy":
+                    content += "<br><br>Manual Therapy is a hands-on approach used by physiotherapists to treat musculoskeletal conditions, alleviate pain, and restore movement. Our experienced therapists use a variety of techniques designed to relax muscles, reduce stiffness, and improve mobility.<ul>" +
+                        "<li><strong>Massage:</strong> A therapeutic technique to increase blood flow, ease muscle tension, and reduce pain caused by stress, injury, or overuse.</li>" +
+                        "<li><strong>Trigger Point Release:</strong> Focused pressure on sensitive areas in the muscles (trigger points) to relieve pain and tension.</li>" +
+                        "<li><strong>Joint Mobilizations:</strong> Gentle movements applied to stiff or restricted joints to increase range of motion and reduce discomfort.</li>" +
+                        "<li><strong>Stretching:</strong> Guided stretches that help improve flexibility, relieve tightness, and prevent injury.</li>" +
+                        "<li><strong>Strengthening Exercises:</strong> Targeted exercises to improve muscle strength, stability, and support around joints.</li></ul>" +
+                        "Manual therapy is suitable for various conditions such as back pain, neck stiffness, sports injuries, and chronic muscle tightness. It can significantly reduce pain, improve function, and speed up recovery.";
+                    break;
 
-    case "Careway Pathway":
-        content += "<br><br>The Careway Pathway is an ACC-funded program designed to support your recovery following an injury. Whether it’s a workplace, sports, or accident-related injury, the program ensures you receive personalized care every step of the way.<ul>" +
-            "<li><strong>Initial Assessment:</strong> A thorough evaluation to understand the nature of your injury and plan an appropriate course of treatment.</li>" +
-            "<li><strong>Personalized Treatment Plan:</strong> A tailored rehabilitation program developed specifically for your needs and recovery goals.</li>" +
-            "<li><strong>Regular Progress Reviews:</strong> Continuous monitoring of your recovery to ensure the treatment is effective and adjusted as needed.</li>" +
-            "<li><strong>Collaborative Care:</strong> If necessary, we coordinate with other healthcare providers such as doctors or specialists to offer comprehensive care.</li>" +
-            "<li><strong>Return to Activity Support:</strong> Guidance on safely returning to work, sport, or daily activities, helping to minimize the risk of re-injury.</li></ul>" +
-            "With Careway Pathway, you’ll have a clear plan and dedicated support to recover from your injury, ensuring a smooth and effective rehabilitation.";
-        break;
+                case "Careway Pathway":
+                    content += "<br><br>The Careway Pathway is an ACC-funded program designed to support your recovery following an injury. Whether it's a workplace, sports, or accident-related injury, the program ensures you receive personalized care every step of the way.<ul>" +
+                        "<li><strong>Initial Assessment:</strong> A thorough evaluation to understand the nature of your injury and plan an appropriate course of treatment.</li>" +
+                        "<li><strong>Personalized Treatment Plan:</strong> A tailored rehabilitation program developed specifically for your needs and recovery goals.</li>" +
+                        "<li><strong>Regular Progress Reviews:</strong> Continuous monitoring of your recovery to ensure the treatment is effective and adjusted as needed.</li>" +
+                        "<li><strong>Collaborative Care:</strong> If necessary, we coordinate with other healthcare providers such as doctors or specialists to offer comprehensive care.</li>" +
+                        "<li><strong>Return to Activity Support:</strong> Guidance on safely returning to work, sport, or daily activities, helping to minimize the risk of re-injury.</li></ul>" +
+                        "With Careway Pathway, you'll have a clear plan and dedicated support to recover from your injury, ensuring a smooth and effective rehabilitation.";
+                    break;
 
-    case "Sports and Injury Rehab":
-        content += "<br><br>Our Sports and Injury Rehabilitation service is designed for athletes and active individuals recovering from sports-related injuries. Whether you're a weekend warrior or a professional athlete, we help you return to your activities stronger and healthier.<ul>" +
-            "<li><strong>Comprehensive Injury Assessment:</strong> A detailed evaluation to understand the underlying cause of your injury and its impact on your performance.</li>" +
-            "<li><strong>Sport-Specific Rehabilitation:</strong> Customized rehabilitation programs tailored to your sport, focusing on restoring strength, endurance, and function.</li>" +
-            "<li><strong>Functional Movement Analysis:</strong> Assessment of how your body moves during activity to identify areas of weakness, imbalance, or risk for further injury.</li>" +
-            "<li><strong>Performance Enhancement:</strong> Exercises and strategies designed to improve your athletic performance while ensuring full recovery from injury.</li>" +
-            "<li><strong>Injury Prevention:</strong> Education and training on how to avoid future injuries, with a focus on proper mechanics and strengthening.</li></ul>" +
-            "We are dedicated to helping you recover fully and safely, improving your performance and preventing re-injury.";
-        break;
+                case "Sports and Injury Rehab":
+                    content += "<br><br>Our Sports and Injury Rehabilitation service is designed for athletes and active individuals recovering from sports-related injuries. Whether you're a weekend warrior or a professional athlete, we help you return to your activities stronger and healthier.<ul>" +
+                        "<li><strong>Comprehensive Injury Assessment:</strong> A detailed evaluation to understand the underlying cause of your injury and its impact on your performance.</li>" +
+                        "<li><strong>Sport-Specific Rehabilitation:</strong> Customized rehabilitation programs tailored to your sport, focusing on restoring strength, endurance, and function.</li>" +
+                        "<li><strong>Functional Movement Analysis:</strong> Assessment of how your body moves during activity to identify areas of weakness, imbalance, or risk for further injury.</li>" +
+                        "<li><strong>Performance Enhancement:</strong> Exercises and strategies designed to improve your athletic performance while ensuring full recovery from injury.</li>" +
+                        "<li><strong>Injury Prevention:</strong> Education and training on how to avoid future injuries, with a focus on proper mechanics and strengthening.</li></ul>" +
+                        "We are dedicated to helping you recover fully and safely, improving your performance and preventing re-injury.";
+                    break;
 
-    case "Pilates":
-        content += "<br><br>Pilates is a low-impact exercise method that focuses on core strength, flexibility, balance, and overall body awareness. It’s perfect for rehabilitation and general fitness, suitable for all ages and abilities.<ul>" +
-            "<li><strong>Core Strength:</strong> Pilates emphasizes the development of a strong core, essential for supporting the spine and improving posture.</li>" +
-            "<li><strong>Flexibility and Posture:</strong> Pilates helps lengthen muscles, improve posture, and relieve tension caused by poor body mechanics.</li>" +
-            "<li><strong>Balance and Coordination:</strong> Specific movements are designed to improve balance and coordination, helping you stay steady in your daily activities.</li>" +
-            "<li><strong>Mind-Body Connection:</strong> Focused breathing and controlled movements create a greater awareness of how your body moves, reducing strain and risk of injury.</li>" +
-            "<li><strong>Adaptability for All Levels:</strong> Pilates can be modified to suit individual fitness levels, making it ideal for injury prevention, recovery, and overall fitness improvement.</li></ul>" +
-            "Led by our experienced instructor María Alonso, our Pilates classes are perfect for anyone looking to improve their health, mobility, and strength in a safe and effective way.";
-        break;
-}
+                case "Pilates":
+                    content += "<br><br>Pilates is a low-impact exercise method that focuses on core strength, flexibility, balance, and overall body awareness. It's perfect for rehabilitation and general fitness, suitable for all ages and abilities.<ul>" +
+                        "<li><strong>Core Strength:</strong> Pilates emphasizes the development of a strong core, essential for supporting the spine and improving posture.</li>" +
+                        "<li><strong>Flexibility and Posture:</strong> Pilates helps lengthen muscles, improve posture, and relieve tension caused by poor body mechanics.</li>" +
+                        "<li><strong>Balance and Coordination:</strong> Specific movements are designed to improve balance and coordination, helping you stay steady in your daily activities.</li>" +
+                        "<li><strong>Mind-Body Connection:</strong> Focused breathing and controlled movements create a greater awareness of how your body moves, reducing strain and risk of injury.</li>" +
+                        "<li><strong>Adaptability for All Levels:</strong> Pilates can be modified to suit individual fitness levels, making it ideal for injury prevention, recovery, and overall fitness improvement.</li></ul>" +
+                        "Led by our experienced instructor María Alonso, our Pilates classes are perfect for anyone looking to improve their health, mobility, and strength in a safe and effective way.";
+                    break;
+            }
+            
+            openModal(title, content);
+        });
+    });
+
     // FAQ Toggle Function
     function toggleFAQ(element) {
         var answer = element.nextElementSibling;
         answer.style.display = answer.style.display === "block" ? "none" : "block";
     }
-    </script>
+</script>
 </body>
 </html>
